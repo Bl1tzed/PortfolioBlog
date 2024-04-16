@@ -1,0 +1,22 @@
+@import "/src/app/styles/variables.scss";
+
+.linkButton {
+  $size: 52px;
+  height: $size;
+  width: $size;
+  border-radius: 100px;
+  background-color: $yellow_55;
+  position: relative;
+  border: 1px solid $black;
+  padding: 0;
+
+  & > div > div > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 24px;
+    width: 24px;
+    stroke: $dark_08;
+  }
+}

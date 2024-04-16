@@ -1,0 +1,37 @@
+@import "app/styles/variables.scss";
+@import "app/styles/normalize.css";
+
+body {
+  background-color: $dark_08;
+  color: $white;
+}
+
+.Inter400 {
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+.Inter500 {
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+.Inter600 {
+  font-family: "Inter";
+  font-weight: 600;
+}
+
+.Inter700 {
+  font-family: "Inter";
+  font-weight: 700;
+}
+
+.OpenSans400 {
+  font-family: "Open Sans";
+  font-weight: 400;
+}
+
+.OpenSans600 {
+  font-family: "Open Sans";
+  font-weight: 600;
+}

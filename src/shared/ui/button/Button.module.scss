@@ -1,0 +1,12 @@
+@import "/src/app/styles/variables.scss";
+
+.button {
+  color: $dark_08;
+  padding: 14px 20px;
+  background-color: $yellow_55;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 55px;
+  border: 1px solid $black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

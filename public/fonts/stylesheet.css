@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-Regular.eot");
+  src: local("Inter Regular"), local("Inter-Regular"),
+    url("Inter-Regular.eot?#iefix") format("embedded-opentype"),
+    url("Inter-Regular.woff2") format("woff2"),
+    url("Inter-Regular.woff") format("woff"),
+    url("Inter-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-SemiBold.eot");
+  src: local("Inter Semi Bold"), local("Inter-SemiBold"),
+    url("Inter-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("Inter-SemiBold.woff2") format("woff2"),
+    url("Inter-SemiBold.woff") format("woff"),
+    url("Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-Bold.eot");
+  src: local("Inter Bold"), local("Inter-Bold"),
+    url("Inter-Bold.eot?#iefix") format("embedded-opentype"),
+    url("Inter-Bold.woff2") format("woff2"),
+    url("Inter-Bold.woff") format("woff"),
+    url("Inter-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-Medium.eot");
+  src: local("Inter Medium"), local("Inter-Medium"),
+    url("Inter-Medium.eot?#iefix") format("embedded-opentype"),
+    url("Inter-Medium.woff2") format("woff2"),
+    url("Inter-Medium.woff") format("woff"),
+    url("Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("KumbhSans-Medium.eot");
+  src: url("KumbhSans-Medium.eot?#iefix") format("embedded-opentype"),
+    url("KumbhSans-Medium.woff2") format("woff2"),
+    url("KumbhSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("KumbhSans-Regular.eot");
+  src: url("KumbhSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("KumbhSans-Regular.woff2") format("woff2"),
+    url("KumbhSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-Regular.eot");
+  src: local("Open Sans Regular"), local("OpenSans-Regular"),
+    url("OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("OpenSans-Regular.woff2") format("woff2"),
+    url("OpenSans-Regular.woff") format("woff"),
+    url("OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-SemiBold.eot");
+  src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"),
+    url("OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("OpenSans-SemiBold.woff2") format("woff2"),
+    url("OpenSans-SemiBold.woff") format("woff"),
+    url("OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}

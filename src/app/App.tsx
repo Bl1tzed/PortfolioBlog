@@ -1,15 +1,19 @@
-import { Button } from "@shared/ui/button";
-import { LinkButton } from "@shared/ui/linkButton";
+import { Header } from "@widgets/header";
+import { Route, Routes } from "react-router-dom";
 
-import style from "./styles/App.module.scss";
+// import s from "./styles/App.module.scss";
+import { Blogpage } from "@pages/blogpage";
+import { Homepage } from "@pages/homepage";
 
 function App() {
   return (
-    <div>
-      <div className={style.text}>Text Текст посложнее где больше буков</div>
-      <Button>Contact Us</Button>
-      <LinkButton />
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/blog" element={<Blogpage />} />
+      </Routes>
+    </>
   );
 }
 

@@ -1,9 +1,10 @@
-@import "app/styles/variables.scss";
-@import "app/styles/normalize.css";
+@import "app/styles/variables";
+@import "app/styles/normalize";
 
 body {
   background-color: $dark_08;
   color: $white;
+  font-size: 16px;
 }
 
 .Inter400 {

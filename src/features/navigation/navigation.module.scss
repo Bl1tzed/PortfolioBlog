@@ -1,0 +1,24 @@
+@import "/src/app/styles/variables";
+
+.navigationList {
+  display: flex;
+  gap: 40px;
+}
+
+.navigationItem {
+  list-style-type: none;
+
+  & a {
+    color: $gray_50;
+    text-decoration: none;
+  }
+
+  & .activePage {
+    color: $white;
+    background-color: $dark_08;
+    border: 1px solid $dark_20;
+    padding: 14px 24px;
+    border-radius: 10px;
+    margin: 0 -24px;
+  }
+}

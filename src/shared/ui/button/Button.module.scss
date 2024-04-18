@@ -1,12 +1,53 @@
-@import "/src/app/styles/variables.scss";
+@import "/src/app/styles/variables";
 
 .button {
-  color: $dark_08;
-  padding: 14px 20px;
-  background-color: $yellow_55;
-  border-radius: 10px;
+  width: fit-content;
   font-size: 18px;
-  height: 55px;
+}
+
+.primaryButton {
+  color: $dark_08;
+  background-color: $yellow_55;
+
+  border-radius: 10px;
   border: 1px solid $black;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  & svg {
+    height: 24px;
+    width: 24px;
+    stroke: $dark_08;
+  }
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: $dark_08;
+  color: $gray_60;
+
+  border-radius: 12px;
+  border: 1px solid $dark_15;
+
+  & svg {
+    height: 24px;
+    width: 24px;
+    stroke: $yellow_55;
+  }
+}
+
+.smallButton {
+  height: 55px;
+  padding: 14px 20px;
+}
+
+.mediumButton {
+  height: 63px;
+  padding: 18px 24px;
+}
+
+.wideButton {
+  width: 277px;
 }

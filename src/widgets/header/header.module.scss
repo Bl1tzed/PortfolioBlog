@@ -1,0 +1,9 @@
+@import "/src/app/styles/variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 162px;
+  background-color: $dark_10;
+}

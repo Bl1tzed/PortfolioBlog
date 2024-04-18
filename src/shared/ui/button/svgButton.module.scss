@@ -1,6 +1,6 @@
-@import "/src/app/styles/variables.scss";
+@import "/src/app/styles/variables";
 
-.linkButton {
+.svgButton {
   $size: 52px;
   height: $size;
   width: $size;
@@ -10,7 +10,7 @@
   border: 1px solid $black;
   padding: 0;
 
-  & > div > div > svg {
+  & svg {
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,9 +1,9 @@
-type ContentNavType = {
+type ContentNavigation = {
   title: string;
   link: string;
 };
 
-export const CONTENT_NAVIGATION_MENU: ContentNavType[] = [
+export const NAVIGATION_CONTENT: ContentNavigation[] = [
   { title: "Blog", link: "/blog" },
   { title: "Portfolio", link: "/portfolio" },
 ];

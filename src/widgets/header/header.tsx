@@ -1,4 +1,3 @@
-import { Homepage } from "@pages/homepage";
 import s from "./header.module.scss";
 
 import { Navigation } from "@features/navigation";

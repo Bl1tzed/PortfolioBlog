@@ -1,0 +1,38 @@
+.post {
+  display: flex;
+  padding: 80px 162px;
+  gap: 80px;
+  align-items: center;
+}
+
+.postImage {
+  width: 500px;
+  object-fit: none;
+  border-radius: 12px;
+}
+
+.postInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.postTitle {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.postSubTitle {
+  font-size: 20px;
+  color: $gray_60;
+}
+
+.postSecondaryInfo {
+  display: flex;
+  gap: 50px;
+}
+
+.postLabel {
+  color: $gray_60;
+  margin-bottom: 4px;
+}

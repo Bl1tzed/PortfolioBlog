@@ -1,0 +1,26 @@
+.footer {
+  padding: 0 162px;
+  color: $dark_40;
+}
+
+.topContainer {
+  padding: 10px 0; // 80px 0 если будет контент
+  border-bottom: 1px solid $dark_15;
+}
+
+.bottomContainer {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerInfo {
+  display: flex;
+  gap: 22px;
+}
+
+.footerIcons {
+  display: flex;
+  gap: 20px;
+}

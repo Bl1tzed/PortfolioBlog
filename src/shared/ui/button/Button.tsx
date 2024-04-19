@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import s from "./button.module.scss";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     buttonType?: "default" | "link";
     svg?: boolean;

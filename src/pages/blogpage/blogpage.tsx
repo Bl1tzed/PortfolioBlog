@@ -1,9 +1,16 @@
+import { POSTS_LIST } from "@shared/consts/posts";
 import { ContentBlock } from "@shared/ui/content-block";
-import s from "./blogpage.module.scss";
+import { PostBlock } from "@widgets/post-block";
+import { PostList } from "@widgets/post-list";
 import clsx from "clsx";
-import { PostCard } from "@widgets/post-card";
+
+import s from "./blogpage.module.scss";
 
 export const Blogpage = () => {
+  const sortedPosts = POSTS_LIST.sort(
+    (a, b) => b.date.valueOf() - a.date.valueOf()
+  );
+
   return (
     <div className={s.content}>
       <ContentBlock className={s.heading} bgColor="dark_08">
@@ -20,7 +27,8 @@ export const Blogpage = () => {
           </div>
         </div>
       </ContentBlock>
-      <PostCard></PostCard>
+      <PostBlock {...sortedPosts[0]} />
+      <PostList posts={sortedPosts.slice(1)} />
     </div>
   );
 };

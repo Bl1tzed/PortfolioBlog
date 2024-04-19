@@ -6,7 +6,7 @@ export const Homepage = () => {
   return (
     <div className={s.content}>
       <div className={s.text}>Homepage</div>
-      <Button variant="primary" size="small" buttonType="default">
+      <Button variant="primary" size="small">
         Contact Us
       </Button>
       <Button svg variant="secondary" size="medium" width="wide">

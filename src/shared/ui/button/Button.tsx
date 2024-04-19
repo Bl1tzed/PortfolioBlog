@@ -7,7 +7,6 @@ import s from "./button.module.scss";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
-    buttonType?: "default" | "link";
     svg?: boolean;
   };
 
@@ -20,9 +19,14 @@ const buttonVariants = cva(s.button, {
     size: {
       small: s.smallButton,
       medium: s.mediumButton,
+      big: s.bigButton,
     },
     width: {
       wide: s.wideButton,
+      adaptive: s.adaptiveButton,
+    },
+    active: {
+      true: s.activeButton,
     },
   },
   defaultVariants: {
@@ -32,14 +36,16 @@ const buttonVariants = cva(s.button, {
 });
 
 export const Button = (props: ButtonProps) => {
-  const { children, variant, size, width, className, svg } = props;
+  const { children, variant, size, width, active, className, svg, ...other } =
+    props;
 
   return (
     <button
       className={clsx(
-        buttonVariants({ variant, size, width, className }),
+        buttonVariants({ variant, size, width, active, className }),
         "Inter500"
       )}
+      {...other}
     >
       {children}
       {svg && <ReactSVG src="svg/arrow-up-right.svg" />}

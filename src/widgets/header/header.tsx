@@ -12,7 +12,7 @@ export const Header = () => {
         <ReactSVG src="svg/logo.svg" />
       </NavLink>
       <Navigation />
-      <Button variant="primary" size="small" buttonType="default">
+      <Button variant="primary" size="small">
         Contact Us
       </Button>
     </header>

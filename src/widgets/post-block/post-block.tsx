@@ -37,7 +37,7 @@ export const PostBlock = ({
             <div className={s.postSecondaryText}>{author}</div>
           </div>
         </div>
-        <Button variant="secondary" size="small">
+        <Button variant="secondary" size="medium">
           Читать больше
         </Button>
       </div>

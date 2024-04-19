@@ -2,18 +2,22 @@ import { POSTS_LIST } from "@shared/consts/posts";
 import { ContentBlock } from "@shared/ui/content-block";
 import { PostBlock } from "@widgets/post-block";
 import { PostList } from "@widgets/post-list";
+import { CategorySelector } from "@widgets/category-selector";
+import { useState } from "react";
 import clsx from "clsx";
 
 import s from "./blogpage.module.scss";
 
 export const Blogpage = () => {
-  const sortedPosts = POSTS_LIST.sort(
-    (a, b) => b.date.valueOf() - a.date.valueOf()
-  );
+  const [category, setCategory] = useState("All");
+
+  const sortedPosts = POSTS_LIST.filter(
+    (item) => item.category == category || category == "All"
+  ).sort((a, b) => b.date.valueOf() - a.date.valueOf());
 
   return (
     <div className={s.content}>
-      <ContentBlock className={s.heading} bgColor="dark_08">
+      <ContentBlock className={s.heading} bgColor="dark_08" border>
         <div className={clsx(s.headingTitle, "OpenSans600")}>
           Последние Посты:
         </div>
@@ -27,8 +31,9 @@ export const Blogpage = () => {
           </div>
         </div>
       </ContentBlock>
-      <PostBlock {...sortedPosts[0]} />
-      <PostList posts={sortedPosts.slice(1)} />
+      <CategorySelector category={category} setCategory={setCategory} />
+      {sortedPosts.length > 0 && <PostBlock {...sortedPosts[0]} />}
+      {sortedPosts.length > 1 && <PostList posts={sortedPosts.slice(1)} />}
     </div>
   );
 };

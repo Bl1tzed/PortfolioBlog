@@ -11,10 +11,17 @@
   border: 1px solid $black;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+  transition: 0.6s;
+
   & svg {
     height: 24px;
     width: 24px;
     stroke: $dark_08;
+  }
+
+  &:hover {
+    color: $black;
+    border: 1px solid $white;
   }
 }
 
@@ -29,10 +36,17 @@
   border-radius: 12px;
   border: 1px solid $dark_15;
 
+  transition: 0.6s;
+
   & svg {
     height: 24px;
     width: 24px;
     stroke: $yellow_55;
+  }
+
+  &:hover {
+    color: $white;
+    border: 1px solid $white;
   }
 }
 
@@ -46,6 +60,21 @@
   padding: 18px 24px;
 }
 
+.bigButton {
+  height: 87px;
+  padding: 30px 24px;
+}
+
+.adaptiveButton {
+  width: 13svw;
+  max-width: 250px;
+}
+
 .wideButton {
   width: 277px;
+}
+
+.activeButton {
+  background-color: $dark_10;
+  color: $white;
 }

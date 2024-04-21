@@ -6,8 +6,10 @@ import { type Post } from "@shared/types";
 import clsx from "clsx";
 
 import s from "./postBlock.module.scss";
+import { Link } from "react-router-dom";
 
 export const PostBlock = ({
+  id,
   title,
   subtitle,
   category,
@@ -37,9 +39,11 @@ export const PostBlock = ({
             <div className={s.postSecondaryText}>{author}</div>
           </div>
         </div>
-        <Button variant="secondary" size="medium">
-          Читать больше
-        </Button>
+        <Link to={`/blog/${id}`}>
+          <Button variant="secondary" size="medium">
+            Читать больше
+          </Button>
+        </Link>
       </div>
     </ContentBlock>
   );

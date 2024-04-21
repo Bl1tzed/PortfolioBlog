@@ -2,16 +2,16 @@
   padding: 0 162px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: sticky;
   background-color: $dark_08;
-  top: -65px;
+  top: -60px;
   height: 150px;
 }
 
 .categoriesInner {
   display: flex;
-  justify-content: center;
-  padding: 5px 0;
+  padding: 10px 0;
   gap: 20px;
   position: sticky;
   top: 0;

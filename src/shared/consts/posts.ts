@@ -2,6 +2,7 @@ import { type Post } from "@shared/types";
 
 export const POSTS_LIST: Post[] = [
   {
+    id: 1,
     title: "Global Climate Summit Addresses Urgent Climate Action",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
@@ -11,6 +12,7 @@ export const POSTS_LIST: Post[] = [
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
+    id: 2,
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
@@ -20,6 +22,7 @@ export const POSTS_LIST: Post[] = [
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
+    id: 3,
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
@@ -29,6 +32,7 @@ export const POSTS_LIST: Post[] = [
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
+    id: 4,
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",

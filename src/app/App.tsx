@@ -2,6 +2,8 @@ import { Header } from "@widgets/header";
 import { Route, Routes } from "react-router-dom";
 import { Blogpage } from "@pages/blogpage";
 import { Homepage } from "@pages/homepage";
+import { Postpage } from "@pages/postpage";
+import { Portfoliopage } from "@pages/portfoliopage";
 import { Banner } from "@widgets/banner";
 import { Footer } from "@widgets/footer";
 
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/blog" element={<Blogpage />} />
+          <Route path="/portfolio" element={<Portfoliopage />} />
+          <Route path="/blog/:postId" element={<Postpage />} />
         </Routes>
       </div>
       <Footer />

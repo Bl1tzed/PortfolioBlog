@@ -1,8 +1,8 @@
-import s from "./navigation.module.scss";
-
 import { NAVIGATION_CONTENT } from "@shared/consts";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+
+import s from "./navigation.module.scss";
 
 export const Navigation = () => {
   return (

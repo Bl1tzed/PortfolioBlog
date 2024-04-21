@@ -12,9 +12,7 @@ export const Navigation = () => {
           <li key={item.title} className={clsx(s.navigationItem, "Inter400")}>
             <NavLink
               to={item.link}
-              className={({ isActive }) =>
-                clsx(isActive && s.activePage, "link")
-              }
+              className={({ isActive }) => clsx(isActive && s.activePage)}
             >
               {item.title}
             </NavLink>

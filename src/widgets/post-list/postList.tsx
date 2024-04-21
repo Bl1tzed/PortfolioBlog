@@ -2,7 +2,7 @@ import { type Post as PostProps } from "@shared/types";
 import { ContentBlock } from "@shared/ui/content-block";
 import { Post } from "@entities/post";
 
-import s from "./post-list.module.scss";
+import s from "./postList.module.scss";
 
 export const PostList = ({ posts }: { posts: PostProps[] }) => {
   return (

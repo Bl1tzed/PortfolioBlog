@@ -5,7 +5,7 @@ import { formatDate } from "@shared/lib/utils";
 import { type Post } from "@shared/types";
 import clsx from "clsx";
 
-import s from "./post-block.module.scss";
+import s from "./postBlock.module.scss";
 
 export const PostBlock = ({
   title,

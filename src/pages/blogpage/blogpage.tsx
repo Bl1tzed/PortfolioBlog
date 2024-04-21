@@ -9,15 +9,15 @@ import clsx from "clsx";
 import s from "./blogpage.module.scss";
 
 export const Blogpage = () => {
-  const [category, setCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const sortedPosts = POSTS_LIST.filter(
-    (item) => item.category == category || category == "All"
+    (item) => item.category === activeCategory || activeCategory === "All"
   ).sort((a, b) => b.date.valueOf() - a.date.valueOf());
 
   return (
     <div className={s.content}>
-      <ContentBlock className={s.heading} bgColor="dark_08" border>
+      <ContentBlock border className={s.heading} bgColor="dark_08">
         <div className={clsx(s.headingTitle, "OpenSans600")}>
           Последние Посты:
         </div>
@@ -31,7 +31,10 @@ export const Blogpage = () => {
           </div>
         </div>
       </ContentBlock>
-      <CategorySelector category={category} setCategory={setCategory} />
+      <CategorySelector
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
       {sortedPosts.length > 0 && <PostBlock {...sortedPosts[0]} />}
       {sortedPosts.length > 1 && <PostList posts={sortedPosts.slice(1)} />}
     </div>

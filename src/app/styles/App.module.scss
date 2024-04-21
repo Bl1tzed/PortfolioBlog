@@ -1,3 +1,11 @@
+@import "normalize";
+
+body {
+  background-color: $dark_08;
+  color: $white;
+  font-size: 16px;
+}
+
 .wrapper {
   min-height: 100svh;
 }

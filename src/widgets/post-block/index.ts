@@ -1,1 +1,1 @@
-export { PostBlock } from "./post-block";
+export { PostBlock } from "./postBlock";

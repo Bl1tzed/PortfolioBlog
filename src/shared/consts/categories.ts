@@ -3,6 +3,8 @@ export const CATEGORIES: string[] = [
   "Technology",
   "Politics",
   "Health",
-  "Enviroment",
+  "Environment",
   "Sports",
 ];
+
+export type Category = (typeof CATEGORIES)[number];

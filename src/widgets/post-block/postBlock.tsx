@@ -16,7 +16,7 @@ export const PostBlock = ({
   image,
 }: Post) => {
   return (
-    <ContentBlock className={s.post} border bgColor="dark_08">
+    <ContentBlock className={s.post} bgColor="dark_08">
       <img className={s.postImage} src={image} alt="image" />
       <div className={s.postInfo}>
         <div className={s.postTitles}>

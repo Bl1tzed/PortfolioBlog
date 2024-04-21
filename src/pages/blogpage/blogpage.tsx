@@ -2,7 +2,7 @@ import { POSTS_LIST } from "@shared/consts/posts";
 import { ContentBlock } from "@shared/ui/content-block";
 import { PostBlock } from "@widgets/post-block";
 import { PostList } from "@widgets/post-list";
-import { CategorySelector } from "@widgets/category-selector";
+import { CategorySelector } from "@features/category-selector";
 import { useState } from "react";
 import clsx from "clsx";
 
@@ -17,7 +17,7 @@ export const Blogpage = () => {
 
   return (
     <div className={s.content}>
-      <ContentBlock border className={s.heading} bgColor="dark_08">
+      <ContentBlock className={s.heading} bgColor="dark_08">
         <div className={clsx(s.headingTitle, "OpenSans600")}>
           Последние Посты:
         </div>

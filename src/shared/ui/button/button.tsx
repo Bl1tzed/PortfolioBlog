@@ -42,8 +42,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       className={clsx(
-        buttonVariants({ variant, size, width, active, className }),
-        "Inter500"
+        buttonVariants({ variant, size, width, active, className })
       )}
       {...other}
     >

@@ -1,8 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { POSTS_LIST } from "@shared/consts";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 import s from "./postpage.module.scss";
-import { useEffect } from "react";
+import { ContentBlock } from "@shared/ui/content-block";
 
 export const Postpage = () => {
   const { postId } = useParams();
@@ -19,8 +20,17 @@ export const Postpage = () => {
 
   return (
     <div className={s.content}>
+      {currentPost && (
+        <div className={s.post}>
+          <ContentBlock border bgColor="dark_10" className={s.headingOuter}>
+            <div className={s.headingInner}>
+              <div className={s.headingText}>{currentPost.title}</div>
+            </div>
+          </ContentBlock>
+          <div>{currentPost.author}</div>
+        </div>
+      )}
       <div className={s.text}>Post ID: {postId}</div>
-      {currentPost && <div>{currentPost.author}</div>}
     </div>
   );
 };

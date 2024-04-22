@@ -5,6 +5,8 @@
 }
 
 .navigationItem {
+  @extend .Inter400;
+
   list-style-type: none;
 
   & a {

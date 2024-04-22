@@ -14,7 +14,14 @@ const contentBlockVariants = cva(s.contentBlock, {
     border: {
       true: s.border,
     },
+    borderRight: {
+      true: s.borderRight,
+    },
+    borderLeft: {
+      true: s.borderLeft,
+    },
     bgColor: {
+      dark_15: s.bgDark_15,
       dark_10: s.bgDark_10,
       dark_08: s.bgDark_08,
     },

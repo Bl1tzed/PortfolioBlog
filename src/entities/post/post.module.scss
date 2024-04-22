@@ -12,6 +12,8 @@
 }
 
 .postTitle {
+  @extend .Inter600;
+
   font-size: 20px;
   margin-bottom: 10px;
 }

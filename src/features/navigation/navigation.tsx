@@ -9,7 +9,7 @@ export const Navigation = () => {
     <nav>
       <ul className={s.navigationList}>
         {NAVIGATION_CONTENT.map((item) => (
-          <li key={item.title} className={clsx(s.navigationItem, "Inter400")}>
+          <li key={item.title} className={clsx(s.navigationItem)}>
             <NavLink
               to={item.link}
               className={({ isActive }) => clsx(isActive && s.activePage)}

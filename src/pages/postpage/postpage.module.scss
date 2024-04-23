@@ -56,7 +56,7 @@
 }
 
 .introduction {
-  padding: 60px;
+  padding: 60px 60px 60px 162px;
 }
 
 .introductionTitle {
@@ -72,7 +72,7 @@
 }
 
 .postMainText {
-  padding: 60px 60px 80px;
+  padding: 60px 60px 80px 162px;
   font-size: 18px;
   position: relative;
 }
@@ -140,12 +140,12 @@
 
 .blockquote {
   position: relative;
-  margin: 0 0 0 8px;
+  margin: 0 0 0 16px;
   color: $gray_60;
   &::before {
     content: "";
     position: absolute;
-    left: -8px;
+    left: -16px;
     top: -4px;
     bottom: -4px;
     width: 3px;
@@ -180,11 +180,13 @@
 .h2 {
   font-size: 28px;
   line-height: 150%;
+  scroll-margin-top: 20px;
 }
 
 .h3 {
   font-size: 24px;
   line-height: 150%;
+  scroll-margin-top: 20px;
 }
 
 .readFullButton {
@@ -193,4 +195,21 @@
   right: 0;
   bottom: 55px;
   margin: 0 auto;
+}
+
+.introductionTitle {
+  scroll-margin-top: 20px;
+}
+
+.samePostsHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.samePostsLabel {
+  @extend .OpenSans600;
+  font-size: 28px;
+  color: $gray_80;
 }

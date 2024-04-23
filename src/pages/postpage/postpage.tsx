@@ -9,14 +9,22 @@ import {
   toPlainText,
 } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-
-import s from "./postpage.module.scss";
 import { formatDate } from "@shared/lib/utils";
 import { Button } from "@shared/ui/button";
+
+import s from "./postpage.module.scss";
+import { PostList } from "@widgets/post-list";
 
 type DetailedPost = Post & {
   body: PortableTextBlock[];
   headings: PortableTextBlock[];
+  // samePosts: {
+  //   title: string;
+  //   category: string;
+  //   mainImageUrl: string;
+  //   slug: string;
+  // }[];
+  samePosts: Post[];
 };
 
 export const Postpage = () => {
@@ -39,6 +47,9 @@ export const Postpage = () => {
           },
         },
         "headings": body[style == 'h2' || style == 'h3'],
+        "samePosts": *[_type=="post" && references(^.category._ref ) && slug.current != "${postSlug}"]
+        [0..2] | order(published desc)
+        {title, "mainImageUrl": mainImage.asset->url, "category": category -> title, "slug": slug.current},
         "category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
         `
       );
@@ -166,6 +177,22 @@ export const Postpage = () => {
             )}
           </ContentBlock>
         </div>
+        {!!post.samePosts.length && (
+          <ContentBlock border>
+            <PostList posts={post.samePosts}>
+              <div className={s.samePostsHeading}>
+                <div className={s.samePostsLabel}>Похожие посты</div>
+                <Button
+                  variant="secondary"
+                  svgSrc="/svg/arrow-up-right.svg"
+                  className={s.samePostsButton}
+                >
+                  Все посты
+                </Button>
+              </div>
+            </PostList>
+          </ContentBlock>
+        )}
       </div>
     </div>
   );

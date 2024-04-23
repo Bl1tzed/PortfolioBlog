@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 500px;
 }
 
 .postImage {
   width: 500px;
-  object-fit: none;
+  object-fit: cover;
   border-radius: 12px;
   height: 220px;
 }

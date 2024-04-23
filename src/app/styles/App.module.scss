@@ -1,5 +1,9 @@
 @import "normalize";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: $dark_08;
   color: $white;

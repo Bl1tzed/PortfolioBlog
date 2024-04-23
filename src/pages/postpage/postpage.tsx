@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { client } from "@shared/api/client";
 import { ContentBlock } from "@shared/ui/content-block";
 import { type Post } from "@shared/types";
-import { PortableText, PortableTextComponents } from "@portabletext/react";
+import {
+  PortableText,
+  PortableTextComponents,
+  toPlainText,
+} from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 
 import s from "./postpage.module.scss";
@@ -11,6 +15,7 @@ import { formatDate } from "@shared/lib/utils";
 
 type DetailedPost = Post & {
   body: PortableTextBlock[];
+  headings: PortableTextBlock[];
 };
 
 export const Postpage = () => {
@@ -18,7 +23,7 @@ export const Postpage = () => {
   const { postSlug } = useParams();
   const navigate = useNavigate();
 
-  const wordsPerMinute = 183;
+  const wordsPerMinute = 150;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,8 +35,10 @@ export const Postpage = () => {
           _type == 'image' => {
             _key, _type,
             "imageUrl": asset->url
-          }
-        }, "category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
+          },
+        },
+        "headings": body[style == 'h2' || style == 'h3'],
+        "category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
         `
       );
 
@@ -45,8 +52,8 @@ export const Postpage = () => {
   if (!post) return null;
 
   const wordCount = blocksToText(post.body)
-    .split(/\w+/g)
-    .filter(Boolean).length;
+    .split(/\s/)
+    .filter((word) => word && word).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
   // const myPortableTextComponents = {
   //   types: {
@@ -82,6 +89,30 @@ export const Postpage = () => {
     },
     block: {
       normal: ({ children }) => <p className={s.normalText}>{children}</p>,
+      h2: ({ children, value }) => (
+        <h3 className={s.h2} id={textToAnchor(toPlainText(value))}>
+          {children}
+        </h3>
+      ),
+      h3: ({ children, value }) => (
+        <h4 className={s.h3} id={textToAnchor(toPlainText(value))}>
+          {children}
+        </h4>
+      ),
+      blockquote: ({ children }) => (
+        <blockquote className={s.blockquote}>{children}</blockquote>
+      ),
+    },
+    marks: {
+      link: ({ children, value }) => (
+        <a className={s.richTextLink} href={value.href}>
+          {children}
+        </a>
+      ),
+    },
+    list: {
+      bullet: ({ children }) => <ul className={s.bulletList}>{children}</ul>,
+      number: ({ children }) => <ol className={s.numberList}>{children}</ol>,
     },
   };
 
@@ -89,19 +120,17 @@ export const Postpage = () => {
     <div className={s.content}>
       <div className={s.post}>
         <ContentBlock border bgColor="dark_10" className={s.headingOuter}>
-          <div className={s.headingInner}>
-            <img
-              className={s.headingImage}
-              src={post.mainImageUrl}
-              alt="Heading Image"
-            />
-            <h1 className={s.headingText}>{post.title}</h1>
-          </div>
+          <img
+            className={s.headingImage}
+            src={post.mainImageUrl}
+            alt="Heading Image"
+          />
+          <h1 className={s.headingText}>{post.title}</h1>
         </ContentBlock>
         <div className={s.postContent}>
           <div className={s.postTextBlock}>
             <ContentBlock border borderRight className={s.introduction}>
-              <div className={s.introductionTitle}>Introduction</div>
+              <div className={s.introductionTitle}>Вступление</div>
               <div className={s.introductionSubTitle}>{post.subtitle}</div>
             </ContentBlock>
             <ContentBlock border borderRight className={s.postMainText}>
@@ -133,9 +162,22 @@ export const Postpage = () => {
                 </div>
               </div>
             </div>
-            <div className={s.contentTable}>
-              <div className={s.contentTableLabel}></div>
-            </div>
+            {!!post.headings.length && (
+              <div className={s.contentTable}>
+                <div className={s.contentTableLabel}>Содержание</div>
+                <div className={s.contentTableItems}>
+                  <ul className={s.contentTableItemsList}>
+                    {post.headings.map((item) => (
+                      <li key={item._key} className={s.contentTableItem}>
+                        <a href={`#${textToAnchor(item.children[0].text)}`}>
+                          {item.children[0].text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </ContentBlock>
         </div>
       </div>
@@ -158,4 +200,8 @@ function blocksToText(blocks: PortableTextBlock[], opts = {}) {
       return block.children.map((child) => child.text).join("");
     })
     .join("\n\n");
+}
+
+function textToAnchor(text: string) {
+  return text.toLowerCase().replaceAll(" ", "-");
 }

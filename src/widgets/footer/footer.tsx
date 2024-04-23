@@ -15,10 +15,10 @@ export const Footer = () => {
         </div>
         <div className={s.footerIcons}>
           <Link to="https://t.me/BlitzedR">
-            <ReactSVG src="svg/telegram.svg" />
+            <ReactSVG src="/svg/telegram.svg" />
           </Link>
           <Link to="https://vk.com/bl1tzed">
-            <ReactSVG src="svg/vk.svg" />
+            <ReactSVG src="/svg/vk.svg" />
           </Link>
         </div>
         <div className={s.copyright}>

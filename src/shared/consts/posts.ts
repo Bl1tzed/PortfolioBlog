@@ -2,42 +2,42 @@ import { type Post } from "@shared/types";
 
 export const POSTS_LIST: Post[] = [
   {
-    id: 1,
+    slug: "first-post",
     title: "Global Climate Summit Addresses Urgent Climate Action",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
     category: "Environment",
-    date: new Date(2023, 2, 5),
+    published: "2023-2-5",
     author: "Bibilitzed",
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
-    id: 2,
+    slug: "first-dasdas",
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
     category: "Health",
-    date: new Date(2023, 1, 10),
+    published: "2023-2-10",
     author: "Blitzed",
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
-    id: 3,
+    slug: "first-dasdaasds",
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
     category: "Health",
-    date: new Date(2023, 0, 10),
+    published: "2023-1-10",
     author: "Blitzed",
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
-    id: 4,
+    slug: "first-dasdasdads",
     title: "A Decisive Victory for Progressive Policies",
     subtitle:
       "World leaders gathered at the Global Climate Summit to discuss urgent climate action, emissions reductions, and renewable energy targets.",
     category: "Health",
-    date: new Date(2022, 11, 10),
+    published: "2022-12-10",
     author: "Blitzed",
     image: "https://placehold.co/600x400/000000/FFFFFF/png",
   },

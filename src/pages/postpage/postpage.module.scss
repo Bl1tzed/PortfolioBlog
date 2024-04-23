@@ -18,3 +18,65 @@
   font-size: 64px;
   text-align: center;
 }
+
+.normalText {
+  @extend .Inter400;
+
+  color: $gray_60;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.postContent {
+  display: flex;
+}
+
+.postTextBlock {
+  width: 65%;
+}
+
+.introduction {
+  padding: 60px;
+}
+
+.introductionTitle {
+  @extend .Inter500;
+
+  color: $white;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.introductionSubTitle {
+  @extend .normalText;
+}
+
+.postMainText {
+  padding: 60px 60px 80px;
+}
+
+.infoItem {
+  width: 205px;
+  height: min-content;
+}
+
+.infoItemLabel {
+  @extend .normalText;
+
+  margin-bottom: 6px;
+}
+
+.postInfo {
+  width: 35%;
+  padding: 60px 60px 80px;
+}
+
+.infoBlock {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

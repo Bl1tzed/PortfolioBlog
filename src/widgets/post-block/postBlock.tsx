@@ -7,17 +7,17 @@ import { Link } from "react-router-dom";
 import s from "./postBlock.module.scss";
 
 export const PostBlock = ({
-  id,
+  slug,
   title,
   subtitle,
   category,
-  date,
+  published,
   author,
-  image,
+  mainImageUrl,
 }: Post) => {
   return (
     <ContentBlock className={s.post} bgColor="dark_08">
-      <img className={s.postImage} src={image} alt="image" />
+      <img className={s.postImage} src={mainImageUrl} alt="image" />
       <div className={s.postInfo}>
         <div className={s.postTitles}>
           <div className={s.postTitle}>{title}</div>
@@ -30,14 +30,14 @@ export const PostBlock = ({
           </div>
           <div className={s.postSecondaryBlock}>
             <div className={s.postLabel}>Дата публикации</div>
-            <div className={s.postSecondaryText}>{formatDate(date)}</div>
+            <div className={s.postSecondaryText}>{formatDate(published)}</div>
           </div>
           <div className={s.postSecondaryBlock}>
             <div className={s.postLabel}>Автор</div>
             <div className={s.postSecondaryText}>{author}</div>
           </div>
         </div>
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${slug}`}>
           <Button variant="secondary" size="medium">
             Читать больше
           </Button>

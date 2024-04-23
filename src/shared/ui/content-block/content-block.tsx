@@ -29,10 +29,16 @@ const contentBlockVariants = cva(s.contentBlock, {
 });
 
 export const ContentBlock = (props: ContentBlockProps) => {
-  const { border, bgColor, children, className } = props;
+  const { border, borderLeft, borderRight, bgColor, children, className } =
+    props;
 
   return (
-    <div className={clsx(contentBlockVariants({ border, bgColor }), className)}>
+    <div
+      className={clsx(
+        contentBlockVariants({ borderLeft, borderRight, border, bgColor }),
+        className
+      )}
+    >
       {children}
     </div>
   );

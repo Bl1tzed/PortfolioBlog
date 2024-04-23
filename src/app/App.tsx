@@ -19,7 +19,8 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/blog" element={<Blogpage />} />
           <Route path="/portfolio" element={<Portfoliopage />} />
-          <Route path="/blog/:postId" element={<Postpage />} />
+          <Route path="/blog/:postSlug" element={<Postpage />} />
+          <Route path="/404" element={<div>Not Found</div>} />
         </Routes>
       </div>
       <Footer />

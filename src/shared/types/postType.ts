@@ -1,11 +1,11 @@
 import { Category } from "@shared/consts/categories";
 
 export type Post = {
-  id: number;
+  slug: string;
   title: string;
   subtitle: string;
   category: Category;
-  date: Date;
+  published: string;
   author: string;
-  image: string;
+  mainImageUrl: string;
 };

@@ -1,18 +1,38 @@
-import { POSTS_LIST } from "@shared/consts/posts";
 import { ContentBlock } from "@shared/ui/content-block";
 import { PostBlock } from "@widgets/post-block";
 import { PostList } from "@widgets/post-list";
 import { CategorySelector } from "@features/category-selector";
-import { useState } from "react";
+import { Post } from "@shared/types";
+import { client } from "@shared/api/client";
+import { useEffect, useState } from "react";
 
 import s from "./blogpage.module.scss";
 
 export const Blogpage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [posts, setPosts] = useState<Post[] | null>(null);
 
-  const sortedPosts = POSTS_LIST.filter(
-    (item) => item.category === activeCategory || activeCategory === "All"
-  ).sort((a, b) => b.date.valueOf() - a.date.valueOf());
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    async function getPosts() {
+      const posts = await client.fetch(
+        `*[_type == 'post'
+        && !(_id in path("drafts.**")) 
+        ${
+          activeCategory != "All"
+            ? `&& category -> title == "${activeCategory}"`
+            : ""
+        }]
+        {"category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
+        `
+      );
+
+      setPosts(posts);
+    }
+    getPosts();
+  }, [activeCategory]);
+
+  if (!posts) return null;
 
   return (
     <div className={s.content}>
@@ -30,8 +50,8 @@ export const Blogpage = () => {
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
       />
-      {sortedPosts.length > 0 && <PostBlock {...sortedPosts[0]} />}
-      {sortedPosts.length > 1 && <PostList posts={sortedPosts.slice(1)} />}
+      {posts.length > 0 && <PostBlock {...posts[0]} />}
+      {posts.length > 1 && <PostList posts={posts.slice(1)} />}
     </div>
   );
 };

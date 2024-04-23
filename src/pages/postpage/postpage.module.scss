@@ -1,6 +1,6 @@
-.headingOuter {
-  background: url(https://placehold.co/1920x500/555555/FFFFFF/png);
-}
+// .headingOuter {
+//   background: url(https://placehold.co/1920x500/555555/FFFFFF/png);
+// }
 
 .headingInner {
   padding: 300px 200px 65px;
@@ -10,6 +10,17 @@
     rgba(20, 20, 20, 0.880208) 75.52%,
     #141414 100%
   );
+  position: relative;
+}
+
+.headingImage {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  z-index: 0;
 }
 
 .headingText {
@@ -17,6 +28,8 @@
 
   font-size: 64px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .normalText {
@@ -32,7 +45,7 @@
 }
 
 .postTextBlock {
-  width: 65%;
+  width: 70%;
 }
 
 .introduction {
@@ -67,7 +80,7 @@
 }
 
 .postInfo {
-  width: 35%;
+  width: 30%;
   padding: 60px 60px 80px;
 }
 
@@ -78,5 +91,6 @@
 .info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
 }

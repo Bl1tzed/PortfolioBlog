@@ -90,6 +90,11 @@ export const Postpage = () => {
       <div className={s.post}>
         <ContentBlock border bgColor="dark_10" className={s.headingOuter}>
           <div className={s.headingInner}>
+            <img
+              className={s.headingImage}
+              src={post.mainImageUrl}
+              alt="Heading Image"
+            />
             <h1 className={s.headingText}>{post.title}</h1>
           </div>
         </ContentBlock>
@@ -140,19 +145,17 @@ export const Postpage = () => {
 
 const defaults = { nonTextBehavior: "remove" };
 
-function blocksToText(blocks, opts = {}) {
+function blocksToText(blocks: PortableTextBlock[], opts = {}) {
   const options = Object.assign({}, defaults, opts);
   return blocks
-    .map((block: { _type: string; children: { text: string }[] }) => {
+    .map((block) => {
       if (block._type !== "block" || !block.children) {
         return options.nonTextBehavior === "remove"
           ? ""
           : `[${block._type} block]`;
       }
 
-      return block.children
-        .map((child: { text: string }) => child.text)
-        .join("");
+      return block.children.map((child) => child.text).join("");
     })
     .join("\n\n");
 }

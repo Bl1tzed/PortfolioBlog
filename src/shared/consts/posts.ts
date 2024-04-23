@@ -9,7 +9,7 @@ export const POSTS_LIST: Post[] = [
     category: "Environment",
     published: "2023-2-5",
     author: "Bibilitzed",
-    image: "https://placehold.co/600x400/000000/FFFFFF/png",
+    mainImageUrl: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
     slug: "first-dasdas",
@@ -19,7 +19,7 @@ export const POSTS_LIST: Post[] = [
     category: "Health",
     published: "2023-2-10",
     author: "Blitzed",
-    image: "https://placehold.co/600x400/000000/FFFFFF/png",
+    mainImageUrl: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
     slug: "first-dasdaasds",
@@ -29,7 +29,7 @@ export const POSTS_LIST: Post[] = [
     category: "Health",
     published: "2023-1-10",
     author: "Blitzed",
-    image: "https://placehold.co/600x400/000000/FFFFFF/png",
+    mainImageUrl: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
   {
     slug: "first-dasdasdads",
@@ -39,6 +39,6 @@ export const POSTS_LIST: Post[] = [
     category: "Health",
     published: "2022-12-10",
     author: "Blitzed",
-    image: "https://placehold.co/600x400/000000/FFFFFF/png",
+    mainImageUrl: "https://placehold.co/600x400/000000/FFFFFF/png",
   },
 ];

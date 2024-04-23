@@ -23,7 +23,7 @@ export const Blogpage = () => {
             ? `&& category -> title == "${activeCategory}"`
             : ""
         }]
-        {"category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
+        {"slug": slug.current,"category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
         `
       );
 

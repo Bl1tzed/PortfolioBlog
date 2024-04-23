@@ -15,7 +15,12 @@ export const Post = ({ slug, title, category, mainImageUrl }: PostProps) => {
         </div>
       </div>
       <Link to={`/blog/${slug}`}>
-        <Button svg variant="secondary" size="medium" width="wide">
+        <Button
+          svgSrc="/svg/arrow-up-right.svg"
+          variant="secondary"
+          size="medium"
+          width="wide"
+        >
           Читать больше
         </Button>
       </Link>

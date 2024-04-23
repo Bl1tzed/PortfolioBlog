@@ -9,7 +9,12 @@ export const Homepage = () => {
       <Button variant="primary" size="small">
         Contact Us
       </Button>
-      <Button svg variant="secondary" size="medium" width="wide">
+      <Button
+        svgSrc="/svg/arrow-up-right.svg"
+        variant="secondary"
+        size="medium"
+        width="wide"
+      >
         Read More
       </Button>
       <Button variant="secondary" size="small">

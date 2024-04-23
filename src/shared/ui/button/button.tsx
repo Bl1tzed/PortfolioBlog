@@ -7,7 +7,7 @@ import s from "./button.module.scss";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
-    svg?: boolean;
+    svgSrc?: string;
   };
 
 const buttonVariants = cva(s.button, {
@@ -36,8 +36,16 @@ const buttonVariants = cva(s.button, {
 });
 
 export const Button = (props: ButtonProps) => {
-  const { children, variant, size, width, active, className, svg, ...other } =
-    props;
+  const {
+    children,
+    variant,
+    size,
+    width,
+    active,
+    className,
+    svgSrc,
+    ...other
+  } = props;
 
   return (
     <button
@@ -47,7 +55,7 @@ export const Button = (props: ButtonProps) => {
       {...other}
     >
       {children}
-      {svg && <ReactSVG src="svg/arrow-up-right.svg" />}
+      {svgSrc && <ReactSVG src={svgSrc} />}
     </button>
   );
 };

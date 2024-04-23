@@ -12,6 +12,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 
 import s from "./postpage.module.scss";
 import { formatDate } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
 
 type DetailedPost = Post & {
   body: PortableTextBlock[];
@@ -55,33 +56,6 @@ export const Postpage = () => {
     .split(/\s/)
     .filter((word) => word && word).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
-  // const myPortableTextComponents = {
-  //   types: {
-  //     image: ({ value }) => <img src={value.imageUrl} />,
-  //     callToAction: ({ value, isInline }) =>
-  //       isInline ? (
-  //         <a href={value.url}>{value.text}</a>
-  //       ) : (
-  //         <div className="callToAction">{value.text}</div>
-  //       ),
-  //   },
-
-  // marks: {
-  //     em: ({ children }) => (
-  //       <em className="text-gray-600 font-semibold">{children}</em>
-  //     ),
-  //     link: ({ children, value }) => {
-  //       const rel = !value.href.startsWith("/")
-  //         ? "noreferrer noopener"
-  //         : undefined;
-  //       return (
-  //         <a href={value.href} rel={rel}>
-  //           {children}
-  //         </a>
-  //       );
-  //     },
-  //   },
-  // };
 
   const richTextComponents: PortableTextComponents = {
     types: {
@@ -130,11 +104,20 @@ export const Postpage = () => {
         <div className={s.postContent}>
           <div className={s.postTextBlock}>
             <ContentBlock border borderRight className={s.introduction}>
-              <div className={s.introductionTitle}>Вступление</div>
+              <div id="introduction" className={s.introductionTitle}>
+                Вступление
+              </div>
               <div className={s.introductionSubTitle}>{post.subtitle}</div>
             </ContentBlock>
             <ContentBlock border borderRight className={s.postMainText}>
               <PortableText value={post.body} components={richTextComponents} />
+              {/* <Button
+                variant="secondary"
+                svgSrc="/svg/arrow-down.svg"
+                className={s.readFullButton}
+              >
+                Читать полностью
+              </Button> */}
             </ContentBlock>
           </div>
           <ContentBlock border borderLeft className={s.postInfo}>
@@ -167,6 +150,9 @@ export const Postpage = () => {
                 <div className={s.contentTableLabel}>Содержание</div>
                 <div className={s.contentTableItems}>
                   <ul className={s.contentTableItemsList}>
+                    <li key={"introduction"} className={s.contentTableItem}>
+                      <a href={`#introduction`}>Вступление</a>
+                    </li>
                     {post.headings.map((item) => (
                       <li key={item._key} className={s.contentTableItem}>
                         <a href={`#${textToAnchor(item.children[0].text)}`}>
@@ -185,10 +171,8 @@ export const Postpage = () => {
   );
 };
 
-const defaults = { nonTextBehavior: "remove" };
-
 function blocksToText(blocks: PortableTextBlock[], opts = {}) {
-  const options = Object.assign({}, defaults, opts);
+  const options = Object.assign({}, { nonTextBehavior: "remove" }, opts);
   return blocks
     .map((block) => {
       if (block._type !== "block" || !block.children) {

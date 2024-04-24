@@ -130,13 +130,6 @@ export const Postpage = () => {
                   value={post.body}
                   components={richTextComponents}
                 />
-                {/* <Button
-                variant="secondary"
-                svgSrc="/svg/arrow-down.svg"
-                className={s.readFullButton}
-              >
-                Читать полностью
-              </Button> */}
               </ContentBlock>
             </div>
             <ContentBlock border borderLeft className={s.postInfo}>

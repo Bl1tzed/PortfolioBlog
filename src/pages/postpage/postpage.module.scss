@@ -2,6 +2,7 @@
   height: calc(100svw / 3);
   width: 100%;
   position: relative;
+  max-height: 650px;
 
   &::after {
     content: "";
@@ -9,7 +10,9 @@
     width: 100%;
     display: block;
     position: absolute;
-    inset: 0;
+    right: 0;
+    left: 0;
+    bottom: -1px;
     background: linear-gradient(
       180deg,
       rgba(20, 20, 20, 0) 0%,
@@ -158,12 +161,15 @@
 
 .richTextLink {
   text-decoration: underline;
-  color: $gray_60;
+  background-color: $dark_15;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: $link;
 
   transition: color 0.3s;
 
   &:hover {
-    color: white;
+    color: #8cf2ff;
   }
 }
 

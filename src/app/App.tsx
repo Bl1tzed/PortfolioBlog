@@ -8,6 +8,7 @@ import { Banner } from "@widgets/banner";
 import { Footer } from "@widgets/footer";
 
 import s from "./styles/App.module.scss";
+import { NotFound } from "@pages/not-found";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/blog" element={<Blogpage />} />
           <Route path="/portfolio" element={<Portfoliopage />} />
           <Route path="/blog/:postSlug" element={<Postpage />} />
-          <Route path="/404" element={<div>Not Found</div>} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

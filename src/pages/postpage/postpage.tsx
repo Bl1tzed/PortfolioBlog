@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { client } from "@shared/api/client";
 import { ContentBlock } from "@shared/ui/content-block";
@@ -32,7 +32,7 @@ export const Postpage = () => {
   const { postSlug } = useParams();
   const navigate = useNavigate();
 
-  const wordsPerMinute = 150;
+  const wordsPerMinute = 183;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,7 +70,11 @@ export const Postpage = () => {
 
   const richTextComponents: PortableTextComponents = {
     types: {
-      image: ({ value }) => <img src={value.imageUrl} />,
+      image: ({ value }) => (
+        <div className={s.imageWrapper}>
+          <img src={value.imageUrl} />
+        </div>
+      ),
     },
     block: {
       normal: ({ children }) => <p className={s.normalText}>{children}</p>,
@@ -104,7 +108,7 @@ export const Postpage = () => {
   return (
     <div className={s.content}>
       <div className={s.post}>
-        <ContentBlock border bgColor="dark_10" className={s.headingOuter}>
+        <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img
             className={s.headingImage}
             src={post.mainImageUrl}
@@ -112,83 +116,90 @@ export const Postpage = () => {
           />
           <h1 className={s.headingText}>{post.title}</h1>
         </ContentBlock>
-        <div className={s.postContent}>
-          <div className={s.postTextBlock}>
-            <ContentBlock border borderRight className={s.introduction}>
-              <div id="introduction" className={s.introductionTitle}>
-                Вступление
-              </div>
-              <div className={s.introductionSubTitle}>{post.subtitle}</div>
-            </ContentBlock>
-            <ContentBlock border borderRight className={s.postMainText}>
-              <PortableText value={post.body} components={richTextComponents} />
-              {/* <Button
+        <ContentBlock>
+          <div className={s.postContent}>
+            <div className={s.postTextBlock}>
+              <ContentBlock border borderRight className={s.introduction}>
+                <div id="introduction" className={s.introductionTitle}>
+                  Вступление
+                </div>
+                <div className={s.introductionSubTitle}>{post.subtitle}</div>
+              </ContentBlock>
+              <ContentBlock border borderRight className={s.postMainText}>
+                <PortableText
+                  value={post.body}
+                  components={richTextComponents}
+                />
+                {/* <Button
                 variant="secondary"
                 svgSrc="/svg/arrow-down.svg"
                 className={s.readFullButton}
               >
                 Читать полностью
               </Button> */}
-            </ContentBlock>
-          </div>
-          <ContentBlock border borderLeft className={s.postInfo}>
-            <div className={s.info}>
-              <div className={s.infoBlock}>
-                <div className={s.infoItem}>
-                  <div className={s.infoItemLabel}>Дата публикации</div>
-                  <div className={s.infoItemText}>
-                    {formatDate(post.published)}
+              </ContentBlock>
+            </div>
+            <ContentBlock border borderLeft className={s.postInfo}>
+              <div className={s.info}>
+                <div className={s.infoBlock}>
+                  <div className={s.infoItem}>
+                    <div className={s.infoItemLabel}>Дата публикации</div>
+                    <div className={s.infoItemText}>
+                      {formatDate(post.published)}
+                    </div>
+                  </div>
+                  <div className={s.infoItem}>
+                    <div className={s.infoItemLabel}>Категория</div>
+                    <div className={s.infoItemText}>{post.category}</div>
                   </div>
                 </div>
-                <div className={s.infoItem}>
-                  <div className={s.infoItemLabel}>Категория</div>
-                  <div className={s.infoItemText}>{post.category}</div>
+                <div className={s.infoBlock}>
+                  <div className={s.infoItem}>
+                    <div className={s.infoItemLabel}>Время чтения</div>
+                    <div className={s.infoItemText}>{readingTime} мин</div>
+                  </div>
+                  <div className={s.infoItem}>
+                    <div className={s.infoItemLabel}>Имя автора</div>
+                    <div className={s.infoItemText}>{post.author}</div>
+                  </div>
                 </div>
               </div>
-              <div className={s.infoBlock}>
-                <div className={s.infoItem}>
-                  <div className={s.infoItemLabel}>Время чтения</div>
-                  <div className={s.infoItemText}>{readingTime} мин</div>
-                </div>
-                <div className={s.infoItem}>
-                  <div className={s.infoItemLabel}>Имя автора</div>
-                  <div className={s.infoItemText}>{post.author}</div>
-                </div>
-              </div>
-            </div>
-            {!!post.headings.length && (
-              <div className={s.contentTable}>
-                <div className={s.contentTableLabel}>Содержание</div>
-                <div className={s.contentTableItems}>
-                  <ul className={s.contentTableItemsList}>
-                    <li key={"introduction"} className={s.contentTableItem}>
-                      <a href={`#introduction`}>Вступление</a>
-                    </li>
-                    {post.headings.map((item) => (
-                      <li key={item._key} className={s.contentTableItem}>
-                        <a href={`#${textToAnchor(item.children[0].text)}`}>
-                          {item.children[0].text}
-                        </a>
+              {!!post.headings.length && (
+                <div className={s.contentTable}>
+                  <div className={s.contentTableLabel}>Содержание</div>
+                  <div className={s.contentTableItems}>
+                    <ul className={s.contentTableItemsList}>
+                      <li key={"introduction"} className={s.contentTableItem}>
+                        <a href={`#introduction`}>Вступление</a>
                       </li>
-                    ))}
-                  </ul>
+                      {post.headings.map((item) => (
+                        <li key={item._key} className={s.contentTableItem}>
+                          <a href={`#${textToAnchor(item.children[0].text)}`}>
+                            {item.children[0].text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            )}
-          </ContentBlock>
-        </div>
+              )}
+            </ContentBlock>
+          </div>
+        </ContentBlock>
         {!!post.samePosts.length && (
           <ContentBlock border>
             <PostList posts={post.samePosts}>
               <div className={s.samePostsHeading}>
                 <div className={s.samePostsLabel}>Похожие посты</div>
-                <Button
-                  variant="secondary"
-                  svgSrc="/svg/arrow-up-right.svg"
-                  className={s.samePostsButton}
-                >
-                  Все посты
-                </Button>
+                <Link to="/blog">
+                  <Button
+                    variant="secondary"
+                    svgSrc="/svg/arrow-up-right.svg"
+                    className={s.samePostsButton}
+                  >
+                    Все посты
+                  </Button>
+                </Link>
               </div>
             </PostList>
           </ContentBlock>

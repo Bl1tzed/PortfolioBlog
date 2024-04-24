@@ -69,6 +69,7 @@
 
 .adaptiveButton {
   width: 13svw;
+  min-width: 150px;
   max-width: 250px;
 }
 
@@ -79,4 +80,39 @@
 .activeButton {
   background-color: $dark_10;
   color: $white;
+}
+
+@media screen and (max-width: $xxl) {
+  .button {
+    font-size: 14px;
+  }
+  .secondaryButton {
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .primaryButton {
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .smallButton {
+    padding: 10px 14px;
+    border-radius: 6px;
+    height: 41px;
+  }
+  .mediumButton {
+    padding: 14px 20px;
+    border-radius: 8px;
+    height: 49px;
+  }
+  .bigButton {
+    height: 63px;
+    padding: 16px 24px;
+  }
+  .wideButton {
+    width: 200px;
+  }
 }

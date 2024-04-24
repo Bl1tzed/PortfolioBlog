@@ -7,7 +7,7 @@
 
 .postImage {
   width: 500px;
-  object-fit: none;
+  object-fit: cover;
   border-radius: 12px;
   max-height: 400px;
 }
@@ -37,9 +37,25 @@
 
   display: flex;
   gap: 50px;
+  font-size: 18px;
 }
 
 .postLabel {
   color: $gray_60;
   margin-bottom: 4px;
+}
+
+@media screen and (max-width: $xxl) {
+  .post {
+    padding: $pad_l $c_pad_l;
+  }
+  .postTitle {
+    font-size: 24px;
+  }
+  .postSubTitle {
+    font-size: 18px;
+  }
+  .postSecondaryInfo {
+    font-size: 16px;
+  }
 }

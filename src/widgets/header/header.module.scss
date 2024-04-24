@@ -1,8 +1,30 @@
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   padding: 24px 162px;
   background-color: $dark_10;
-  border: 1px solid $dark_15;
+  border-top: 1px solid $dark_15;
+  border-bottom: 1px solid $dark_15;
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+}
+
+.logo {
+  @extend .OpenSans600;
+
+  font-size: 28px;
+  width: 140px;
+}
+
+@media screen and (max-width: $xxl) {
+  .logo {
+    font-size: 24px;
+    width: 105px;
+  }
 }

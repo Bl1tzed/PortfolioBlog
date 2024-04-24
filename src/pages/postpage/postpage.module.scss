@@ -1,5 +1,5 @@
 .headingOuter {
-  height: 600px;
+  height: calc(100svw / 3);
   width: 100%;
   position: relative;
 
@@ -56,7 +56,7 @@
 }
 
 .introduction {
-  padding: 60px 60px 60px 162px;
+  padding: $pad_d $pad_d $pad_d $c_pad_d;
 }
 
 .introductionTitle {
@@ -72,13 +72,13 @@
 }
 
 .postMainText {
-  padding: 60px 60px 80px 162px;
+  padding: $pad_d $pad_d $pad_d $c_pad_d;
   font-size: 18px;
   position: relative;
 }
 
 .infoItem {
-  width: 205px;
+  width: 185px;
   height: min-content;
 }
 
@@ -89,17 +89,20 @@
 }
 
 .postInfo {
-  width: 30%;
-  padding: 60px 20px 80px;
+  width: 40svw;
+  max-width: 700px;
+  padding: $pad_d $c_pad_d $pad_d $pad_d;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  font-size: 18px;
+  height: 100%;
 }
 
 .infoBlock {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 }
 
 .info {
@@ -170,6 +173,8 @@
 
   & li {
     line-height: 150%;
+    margin-bottom: 8px;
+    font-size: 18px;
   }
 
   & li::marker {
@@ -212,4 +217,60 @@
   @extend .OpenSans600;
   font-size: 28px;
   color: $gray_80;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: $xxl) {
+  .headingText {
+    font-size: 44px;
+  }
+  .introduction {
+    padding: $pad_l $pad_l $pad_l $c_pad_l;
+  }
+  .postInfo {
+    padding: $pad_l $c_pad_l $pad_l $pad_l;
+    font-size: 16px;
+    max-width: 570px;
+    gap: 40px;
+  }
+  .postMainText {
+    padding: $pad_l $pad_l $pad_l $c_pad_l;
+  }
+  .contentTableItems {
+    padding: 18px;
+  }
+  .contentTableItem {
+    font-size: 16px;
+  }
+  .info {
+    gap: 20px;
+  }
+  .infoBlock {
+    gap: 20px;
+  }
+  .infoItem {
+    width: 170px;
+  }
+  .normalText,
+  .blockquote {
+    font-size: 16px;
+  }
+  .h2 {
+    font-size: 22px;
+  }
+  .h3 {
+    font-size: 20px;
+  }
+  .bulletList,
+  .numberList {
+    font-size: 16px;
+  }
+  .samePostsHeading {
+    margin-bottom: 50px;
+  }
 }

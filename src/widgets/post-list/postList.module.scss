@@ -2,8 +2,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  // width: calc(100svw - $c_pad_d * 2);
+  width: 100%;
 }
 
 .postList {
-  padding: 80px 162px;
+  padding: 80px $c_pad_d;
+  max-width: 1920px;
+}
+
+@media screen and (max-width: $xxl) {
+  .postListItems {
+    width: calc(100svw - $c_pad_l * 2);
+  }
+  .postList {
+    padding: 60px 80px;
+  }
 }

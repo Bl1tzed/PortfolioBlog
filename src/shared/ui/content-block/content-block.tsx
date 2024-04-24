@@ -35,11 +35,10 @@ export const ContentBlock = (props: ContentBlockProps) => {
   return (
     <div
       className={clsx(
-        contentBlockVariants({ borderLeft, borderRight, border, bgColor }),
-        className
+        contentBlockVariants({ borderLeft, borderRight, border, bgColor })
       )}
     >
-      {children}
+      <div className={clsx(s.contentBlockInner, className)}>{children}</div>
     </div>
   );
 };

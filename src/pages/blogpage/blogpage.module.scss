@@ -32,4 +32,16 @@
 
   font-size: 18px;
   color: $gray_60;
+  line-height: 150%;
+}
+
+@media screen and (max-width: $xxl) {
+  .headingTitle,
+  .headingTitleUnder {
+    font-size: 55px;
+  }
+
+  .headingSubTitle {
+    font-size: 16px;
+  }
 }

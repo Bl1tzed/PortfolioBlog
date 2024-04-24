@@ -22,3 +22,14 @@
 .bgDark_08 {
   background-color: $dark_08;
 }
+
+.contentBlockInner {
+  max-width: 1920px;
+  width: 100%;
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

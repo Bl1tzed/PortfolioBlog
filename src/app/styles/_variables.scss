@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 $white: #fff;
 $black: #000;
 
@@ -28,6 +30,19 @@ $gray_95: #f1f1f3;
 $gray_97: #f7f7f8;
 $gray_99: #fcfcfd;
 
-$logo_desktopWidth: 50px;
-$logo_laptopWidth: 40px;
-$logo_mobileWidth: 35px;
+// $logo_width: 50px;
+// $logo_laptopWidth: 40px;
+// $logo_mobileWidth: 35px;
+
+$c_pad_d: 162px; // corner padding desktop
+$c_pad_l: 80px; // corner padding laptop
+$c_pad_m: 24px; // corner padding mobile
+
+$pad_d: 80px;
+$pad_l: 60px;
+$pad_rt_m: 24px; // padding for rich text on mobile
+$pad_m: 16px;
+
+$text_fs_d: 18px;
+$text_fs_l: 16px;
+$text_fs_m: 14px;

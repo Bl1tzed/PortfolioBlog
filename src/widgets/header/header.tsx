@@ -12,9 +12,11 @@ export const Header = () => {
           <div className={s.logo}>Bibiblog</div>
         </NavLink>
         <Navigation />
-        <Button variant="primary" size="small">
-          Contact Us
-        </Button>
+        <div className={s.headerButton}>
+          <Button variant="primary" size="small">
+            Contact Us
+          </Button>
+        </div>
       </div>
     </header>
   );

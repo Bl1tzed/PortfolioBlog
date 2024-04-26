@@ -69,7 +69,7 @@
 
 .adaptiveButton {
   width: 13svw;
-  min-width: 150px;
+  min-width: 120px;
   max-width: 250px;
 }
 
@@ -114,5 +114,12 @@
   }
   .wideButton {
     width: 200px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .bigButton {
+    height: 59px;
+    padding: 14px 18px;
   }
 }

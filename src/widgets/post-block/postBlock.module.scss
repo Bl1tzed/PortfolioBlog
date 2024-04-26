@@ -6,16 +6,22 @@
 }
 
 .postImage {
-  width: 500px;
   object-fit: cover;
   border-radius: 12px;
-  max-height: 400px;
+  width: 100%;
+}
+
+.postImageWrapper {
+  min-width: 350px;
+  max-width: 500px;
+  max-height: 100%;
 }
 
 .postInfo {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  min-width: 350px;
 }
 
 .postTitle {
@@ -30,6 +36,7 @@
 
   font-size: 20px;
   color: $gray_60;
+  line-height: 150%;
 }
 
 .postSecondaryInfo {
@@ -45,17 +52,60 @@
   margin-bottom: 4px;
 }
 
+.postSecondaryBlock {
+  flex-shrink: 0;
+}
+
 @media screen and (max-width: $xxl) {
   .post {
     padding: $pad_l $c_pad_l;
+    gap: 40px;
+  }
+  .postInfo {
+    gap: 30px;
   }
   .postTitle {
     font-size: 24px;
+    margin-bottom: 14px;
+  }
+  .postSecondaryInfo {
+    gap: 30px;
   }
   .postSubTitle {
     font-size: 18px;
   }
   .postSecondaryInfo {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .post {
+    padding: 40px $pad_m;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 700px;
+  }
+  .postImageWrapper {
+    max-width: 700px;
+    min-width: 200px;
+  }
+  .postInfo {
+    min-width: 200px;
+    gap: 20px;
+  }
+  .postTitle {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .postSecondaryInfo {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .postSubTitle {
+    font-size: 16px;
+  }
+  .postSecondaryInfo {
+    font-size: 14px;
   }
 }

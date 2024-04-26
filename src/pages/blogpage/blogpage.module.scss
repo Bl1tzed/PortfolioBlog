@@ -4,27 +4,14 @@
 }
 
 .heading {
-  padding: 130px 162px 150px;
+  padding: 130px $c_pad_d 150px;
 }
 
 .headingTitle {
   @extend .OpenSans600;
 
   font-size: 80px;
-  margin-bottom: 10px;
-}
-
-.headingSecondary {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-.headingTitleUnder {
-  @extend .OpenSans600;
-
-  font-size: 80px;
-  flex-shrink: 0;
+  margin-bottom: 20px;
 }
 
 .headingSubTitle {
@@ -36,12 +23,29 @@
 }
 
 @media screen and (max-width: $xxl) {
-  .headingTitle,
-  .headingTitleUnder {
+  .heading {
+    padding: $c_pad_l $c_pad_l 100px;
+  }
+
+  .headingTitle {
     font-size: 55px;
   }
 
   .headingSubTitle {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .heading {
+    padding: 40px $pad_m;
+  }
+
+  .headingTitle {
+    font-size: 28px;
+  }
+
+  .headingSubTitle {
+    font-size: 14px;
   }
 }

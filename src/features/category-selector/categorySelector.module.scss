@@ -1,5 +1,5 @@
 .categories {
-  padding: 0 162px;
+  padding: 0 $c_pad_d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,6 +7,8 @@
   background-color: $dark_08;
   top: -60px;
   height: 150px;
+  border-top: 1px solid $dark_15;
+  border-bottom: 1px solid $dark_15;
 }
 
 .categoriesInner {
@@ -15,4 +17,22 @@
   gap: 20px;
   position: sticky;
   top: 0;
+}
+
+@media screen and (max-width: $xxl) {
+  .categories {
+    padding: 0 $c_pad_l;
+    height: 138px;
+    top: -56px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .categories {
+    padding: 0 $pad_m;
+    height: 98px;
+  }
+  .categoriesInner {
+    overflow-x: auto;
+  }
 }

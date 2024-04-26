@@ -37,13 +37,10 @@ export const Blogpage = () => {
   return (
     <div className={s.content}>
       <ContentBlock className={s.heading} bgColor="dark_08">
-        <div className={s.headingTitle}>Последние Посты:</div>
-        <div className={s.headingSecondary}>
-          <div className={s.headingTitleUnder}>Будь в Курсе</div>
-          <div className={s.headingSubTitle}>
-            Здесь публикуются последние новости о том-то, о чем-то, текст,
-            текст, текст
-          </div>
+        <div className={s.headingTitle}>Последние Посты: Будь в Курсе</div>
+        <div className={s.headingSubTitle}>
+          Здесь публикуются последние новости о том-то, о чем-то, текст, текст,
+          текст
         </div>
       </ContentBlock>
       <CategorySelector

@@ -3,6 +3,7 @@
   width: 100%;
   position: relative;
   max-height: 650px;
+  min-height: 200px;
 
   &::after {
     content: "";
@@ -11,7 +12,7 @@
     display: block;
     position: absolute;
     right: 0;
-    left: 0;
+    left: -1px;
     bottom: -1px;
     background: linear-gradient(
       180deg,
@@ -26,6 +27,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 1918px;
 }
 
 .headingText {
@@ -231,9 +233,20 @@
   width: 100%;
 }
 
+.image {
+  width: 100%;
+  max-width: fit-content;
+  border-radius: 12px;
+}
+
+h3:nth-child(1) {
+  margin-top: 0;
+}
+
 @media screen and (max-width: $xxl) {
   .headingText {
     font-size: 44px;
+    margin: 0 auto 35px;
   }
   .introduction {
     padding: $pad_l $pad_l $pad_l $c_pad_l;
@@ -278,5 +291,77 @@
   }
   .samePostsHeading {
     margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .headingText {
+    font-size: 28px;
+    margin: 0 auto 17px;
+  }
+  .introduction {
+    padding: 40px $pad_rt_m;
+  }
+  .postContent {
+    flex-direction: column-reverse;
+  }
+  .postInfo {
+    padding: 40px $pad_rt_m;
+    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    gap: 30px;
+  }
+  .postTextBlock {
+    width: 100%;
+  }
+  .postMainText {
+    padding: 40px $pad_rt_m;
+  }
+  .introductionTitle {
+    font-size: 18px;
+  }
+  .info {
+    width: 100%;
+    max-width: 450px;
+  }
+  .infoBlock {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  .infoItemLabel {
+    font-size: 14px;
+  }
+  .contentTable {
+    max-width: 550px;
+  }
+
+  .contentTableItem {
+    font-size: 14px;
+  }
+  .info {
+    gap: 20px;
+  }
+  .infoItem {
+    width: 170px;
+  }
+  .normalText,
+  .blockquote {
+    font-size: 14px;
+  }
+  .h2 {
+    font-size: 18px;
+  }
+  .h3 {
+    font-size: 16px;
+  }
+  .bulletList,
+  .numberList {
+    font-size: 14px;
+  }
+  .samePostsHeading {
+    margin-bottom: 40px;
   }
 }

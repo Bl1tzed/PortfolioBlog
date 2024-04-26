@@ -1,7 +1,6 @@
 import { CATEGORIES } from "@shared/consts";
 import { Button } from "@shared/ui/button";
 import { Category } from "@shared/consts/categories";
-import { ContentBlock } from "@shared/ui/content-block";
 
 import s from "./categorySelector.module.scss";
 
@@ -15,7 +14,7 @@ export const CategorySelector = ({
   setActiveCategory,
 }: CategorySelectorProps) => {
   return (
-    <ContentBlock border className={s.categories}>
+    <div className={s.categories}>
       <div className={s.categoriesInner}>
         {CATEGORIES.map((categoryItem) => {
           return (
@@ -32,6 +31,6 @@ export const CategorySelector = ({
           );
         })}
       </div>
-    </ContentBlock>
+    </div>
   );
 };

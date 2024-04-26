@@ -43,3 +43,15 @@
     font-size: 16px;
   }
 }
+
+@media screen and (max-width: $lg) {
+  .post {
+    width: 100%;
+  }
+  .postTitle {
+    font-size: 16px;
+  }
+  .postCategory {
+    font-size: 14px;
+  }
+}

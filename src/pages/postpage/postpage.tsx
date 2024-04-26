@@ -72,7 +72,7 @@ export const Postpage = () => {
     types: {
       image: ({ value }) => (
         <div className={s.imageWrapper}>
-          <img src={value.imageUrl} />
+          <img className={s.image} src={value.imageUrl} />
         </div>
       ),
     },

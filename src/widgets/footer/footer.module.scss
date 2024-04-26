@@ -51,3 +51,31 @@
   //   }
   // }
 }
+
+@media screen and (max-width: $lg) {
+  .footer {
+    padding: 0 $pad_m;
+  }
+  .bottomContainer {
+    font-size: 14px;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 24px 0;
+  }
+  .footerInfo {
+    order: 2;
+  }
+  .footerIcons {
+    order: 1;
+  }
+  .copyright {
+    order: 3;
+  }
+
+  .footerInfo {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -12,10 +12,18 @@
 }
 
 @media screen and (max-width: $xxl) {
-  .postListItems {
-    width: calc(100svw - $c_pad_l * 2);
-  }
   .postList {
     padding: 60px 80px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .postListItems {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .postList {
+    padding: 40px $pad_m;
   }
 }

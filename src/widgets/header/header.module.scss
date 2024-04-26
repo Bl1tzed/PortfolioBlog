@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: center;
-  padding: 24px 162px;
+  padding: 24px $c_pad_d;
   background-color: $dark_10;
   border-top: 1px solid $dark_15;
   border-bottom: 1px solid $dark_15;
@@ -22,9 +22,32 @@
   width: 140px;
 }
 
+.headerButton {
+  width: 140px;
+}
+
 @media screen and (max-width: $xxl) {
+  .header {
+    padding: 20px $c_pad_l;
+  }
   .logo {
     font-size: 24px;
     width: 105px;
+  }
+  .headerButton {
+    width: 105px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .header {
+    padding: 20px $pad_m;
+  }
+  .logo {
+    font-size: 20px;
+    width: 85px;
+  }
+  .headerButton {
+    display: none;
   }
 }

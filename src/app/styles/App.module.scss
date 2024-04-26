@@ -1,5 +1,19 @@
 @import "normalize";
 
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: $dark_08;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $dark_15;
+  border-radius: 10px;
+  &:hover {
+    background-color: $dark_20;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

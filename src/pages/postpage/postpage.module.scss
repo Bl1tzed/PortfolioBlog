@@ -287,7 +287,9 @@ h3:nth-child(1) {
   }
   .bulletList,
   .numberList {
-    font-size: 16px;
+    & li {
+      font-size: 16px;
+    }
   }
   .samePostsHeading {
     margin-bottom: 50px;
@@ -359,7 +361,9 @@ h3:nth-child(1) {
   }
   .bulletList,
   .numberList {
-    font-size: 14px;
+    & li {
+      font-size: 14px;
+    }
   }
   .samePostsHeading {
     margin-bottom: 40px;

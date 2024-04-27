@@ -130,20 +130,22 @@
 
 .contentTableItems {
   background-color: $dark_10;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
 }
 
 .contentTableItemsList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .contentTableItem {
   @extend .Inter400;
 
   font-size: 18px;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .blockquote {
@@ -243,6 +245,11 @@ h3:nth-child(1) {
   margin-top: 0;
 }
 
+.visibleSection {
+  background-color: $dark_25;
+  transition: background-color 0.6s;
+}
+
 @media screen and (max-width: $xxl) {
   .headingText {
     font-size: 44px;
@@ -339,15 +346,8 @@ h3:nth-child(1) {
   .contentTable {
     max-width: 550px;
   }
-
   .contentTableItem {
     font-size: 14px;
-  }
-  .info {
-    gap: 20px;
-  }
-  .infoItem {
-    width: 170px;
   }
   .normalText,
   .blockquote {

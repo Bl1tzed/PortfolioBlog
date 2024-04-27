@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useInView, InView } from "react-intersection-observer";
 import { client } from "@shared/api/client";
 import { ContentBlock } from "@shared/ui/content-block";
 import { type Post } from "@shared/types";
@@ -11,9 +12,10 @@ import {
 import type { PortableTextBlock } from "@portabletext/types";
 import { formatDate } from "@shared/lib/utils";
 import { Button } from "@shared/ui/button";
+import { PostList } from "@widgets/post-list";
 
 import s from "./postpage.module.scss";
-import { PostList } from "@widgets/post-list";
+import clsx from "clsx";
 
 type DetailedPost = Post & {
   body: PortableTextBlock[];
@@ -28,9 +30,20 @@ type DetailedPost = Post & {
 };
 
 export const Postpage = () => {
+  const { ref } = useInView({
+    threshold: 0.2,
+  });
+
   const [post, setPost] = useState<DetailedPost | null>(null);
+  const [visibleSection, setVisibleSection] = useState<string | null>("");
   const { postSlug } = useParams();
   const navigate = useNavigate();
+
+  const setInView = (inView: boolean, entry: IntersectionObserverEntry) => {
+    if (inView) {
+      setVisibleSection(entry.target.getAttribute("id"));
+    }
+  };
 
   const wordsPerMinute = 183;
 
@@ -79,9 +92,19 @@ export const Postpage = () => {
     block: {
       normal: ({ children }) => <p className={s.normalText}>{children}</p>,
       h2: ({ children, value }) => (
-        <h3 className={s.h2} id={textToAnchor(toPlainText(value))}>
-          {children}
-        </h3>
+        <InView onChange={setInView} threshold={0.8} key={toPlainText(value)}>
+          {({ ref }) => {
+            return (
+              <h3
+                className={s.h2}
+                id={textToAnchor(toPlainText(value))}
+                ref={ref}
+              >
+                {children}
+              </h3>
+            );
+          }}
+        </InView>
       ),
       h3: ({ children, value }) => (
         <h4 className={s.h3} id={textToAnchor(toPlainText(value))}>
@@ -120,16 +143,28 @@ export const Postpage = () => {
           <div className={s.postContent}>
             <div className={s.postTextBlock}>
               <ContentBlock border borderRight className={s.introduction}>
-                <div id="introduction" className={s.introductionTitle}>
-                  Вступление
-                </div>
+                <InView onChange={setInView} threshold={0.8}>
+                  {({ ref }) => {
+                    return (
+                      <div
+                        id="introduction"
+                        className={s.introductionTitle}
+                        ref={ref}
+                      >
+                        Вступление
+                      </div>
+                    );
+                  }}
+                </InView>
                 <div className={s.introductionSubTitle}>{post.subtitle}</div>
               </ContentBlock>
               <ContentBlock border borderRight className={s.postMainText}>
-                <PortableText
-                  value={post.body}
-                  components={richTextComponents}
-                />
+                <div ref={ref}>
+                  <PortableText
+                    value={post.body}
+                    components={richTextComponents}
+                  />
+                </div>
               </ContentBlock>
             </div>
             <ContentBlock border borderLeft className={s.postInfo}>
@@ -162,11 +197,25 @@ export const Postpage = () => {
                   <div className={s.contentTableLabel}>Содержание</div>
                   <div className={s.contentTableItems}>
                     <ul className={s.contentTableItemsList}>
-                      <li key={"introduction"} className={s.contentTableItem}>
+                      <li
+                        key={"introduction"}
+                        className={clsx(
+                          s.contentTableItem,
+                          visibleSection === "introduction" && s.visibleSection
+                        )}
+                      >
                         <a href={`#introduction`}>Вступление</a>
                       </li>
                       {post.headings.map((item) => (
-                        <li key={item._key} className={s.contentTableItem}>
+                        <li
+                          key={item._key}
+                          className={clsx(
+                            s.contentTableItem,
+                            visibleSection ===
+                              textToAnchor(item.children[0].text) &&
+                              s.visibleSection
+                          )}
+                        >
                           <a href={`#${textToAnchor(item.children[0].text)}`}>
                             {item.children[0].text}
                           </a>

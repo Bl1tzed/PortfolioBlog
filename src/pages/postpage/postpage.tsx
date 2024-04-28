@@ -1,33 +1,21 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useInView, InView } from "react-intersection-observer";
-import { client } from "@shared/api/client";
+import { type DetailedPost } from "@shared/types";
 import { ContentBlock } from "@shared/ui/content-block";
-import { type Post } from "@shared/types";
 import {
   PortableText,
   PortableTextComponents,
   toPlainText,
 } from "@portabletext/react";
-import type { PortableTextBlock } from "@portabletext/types";
-import { formatDate } from "@shared/lib/utils";
+import { formatDate, textToAnchor } from "@shared/lib/utils";
 import { Button } from "@shared/ui/button";
+import { blocksToText } from "@shared/lib/blockToText";
+import { getPosts } from "@pages/postpage/queries/getPosts";
 import { PostList } from "@widgets/post-list";
-
-import s from "./postpage.module.scss";
 import clsx from "clsx";
 
-type DetailedPost = Post & {
-  body: PortableTextBlock[];
-  headings: PortableTextBlock[];
-  // samePosts: {
-  //   title: string;
-  //   category: string;
-  //   mainImageUrl: string;
-  //   slug: string;
-  // }[];
-  samePosts: Post[];
-};
+import s from "./postpage.module.scss";
 
 export const Postpage = () => {
   const { ref } = useInView({
@@ -39,39 +27,11 @@ export const Postpage = () => {
   const { postSlug } = useParams();
   const navigate = useNavigate();
 
-  const setInView = (inView: boolean, entry: IntersectionObserverEntry) => {
-    if (inView) {
-      setVisibleSection(entry.target.getAttribute("id"));
-    }
-  };
-
   const wordsPerMinute = 183;
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    async function getPosts() {
-      const posts = await client.fetch(
-        `*[_type == 'post' && !(_id in path("drafts.**")) && slug.current == "${postSlug}"]
-        {body[] {
-          ...,
-          _type == 'image' => {
-            _key, _type,
-            "imageUrl": asset->url
-          },
-        },
-        "headings": body[style == 'h2' || style == 'h3'],
-        "samePosts": *[_type=="post" && references(^.category._ref ) && slug.current != "${postSlug}"]
-        [0..2] | order(published desc)
-        {title, "mainImageUrl": mainImage.asset->url, "category": category -> title, "slug": slug.current},
-        "category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
-        `
-      );
-
-      if (posts.length === 0) navigate("/404");
-
-      setPost(posts[0]);
-    }
-    getPosts();
+    getPosts(postSlug, setPost, navigate);
   }, [navigate, postSlug]);
 
   if (!post) return null;
@@ -81,11 +41,17 @@ export const Postpage = () => {
     .filter((word) => word && word).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
+  const setInView = (inView: boolean, entry: IntersectionObserverEntry) => {
+    if (inView) {
+      setVisibleSection(entry.target.getAttribute("id"));
+    }
+  };
+
   const richTextComponents: PortableTextComponents = {
     types: {
       image: ({ value }) => (
         <div className={s.imageWrapper}>
-          <img className={s.image} src={value.imageUrl} />
+          <img className={s.image} src={value.imageUrl} alt="Rich Text Image" />
         </div>
       ),
     },
@@ -250,22 +216,3 @@ export const Postpage = () => {
     </div>
   );
 };
-
-function blocksToText(blocks: PortableTextBlock[], opts = {}) {
-  const options = Object.assign({}, { nonTextBehavior: "remove" }, opts);
-  return blocks
-    .map((block) => {
-      if (block._type !== "block" || !block.children) {
-        return options.nonTextBehavior === "remove"
-          ? ""
-          : `[${block._type} block]`;
-      }
-
-      return block.children.map((child) => child.text).join("");
-    })
-    .join("\n\n");
-}
-
-function textToAnchor(text: string) {
-  return text.toLowerCase().replaceAll(" ", "-");
-}

@@ -1,5 +1,5 @@
 import { PortableTextBlock } from "@portabletext/react";
-import { Post } from "@shared/types";
+import { Post } from "./postType";
 
 export type DetailedPost = Post & {
   body: PortableTextBlock[];

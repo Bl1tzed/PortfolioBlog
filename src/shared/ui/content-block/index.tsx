@@ -1,1 +1,1 @@
-export { ContentBlock } from "./content-block";
+export { ContentBlock } from "./ui/content-block";

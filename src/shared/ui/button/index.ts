@@ -1,2 +1,2 @@
-export { Button } from "./button";
-export { SvgButton } from "./svgButton";
+export { Button } from "./ui/button";
+export { SvgButton } from "./ui/svgButton";

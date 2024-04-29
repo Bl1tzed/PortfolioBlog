@@ -1,1 +1,1 @@
-export { CategorySelector } from "./categorySelector";
+export { CategorySelector } from "./ui/categorySelector";

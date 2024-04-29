@@ -21,7 +21,7 @@ function App() {
           <Route path="/blog" element={<Blogpage />} />
           <Route path="/portfolio" element={<Portfoliopage />} />
           <Route path="/blog/:postSlug" element={<Postpage />} />
-          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

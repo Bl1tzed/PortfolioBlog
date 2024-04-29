@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useInView, InView } from "react-intersection-observer";
+import { client } from "@shared/api/client";
 import { type DetailedPost } from "@shared/types";
 import { ContentBlock } from "@shared/ui/content-block";
 import {
@@ -11,11 +12,13 @@ import {
 import { formatDate, textToAnchor } from "@shared/lib/utils";
 import { Button } from "@shared/ui/button";
 import { blocksToText } from "@shared/lib/blockToText";
-import { getPosts } from "@pages/postpage/queries/getPosts";
 import { PostList } from "@widgets/post-list";
+import { queryPostpage } from "../model/queries/queryPostpage";
 import clsx from "clsx";
 
 import s from "./postpage.module.scss";
+
+const WORDS_PER_MINUTE = 183;
 
 export const Postpage = () => {
   const { ref } = useInView({
@@ -27,11 +30,17 @@ export const Postpage = () => {
   const { postSlug } = useParams();
   const navigate = useNavigate();
 
-  const wordsPerMinute = 183;
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    getPosts(postSlug, setPost, navigate);
+    async function getPost(postSlug: string) {
+      const post = await client.fetch(queryPostpage(postSlug));
+      if (post.length === 0) navigate("/404");
+      setPost(post);
+    }
+
+    if (postSlug) {
+      getPost(postSlug);
+    }
   }, [navigate, postSlug]);
 
   if (!post) return null;
@@ -39,7 +48,7 @@ export const Postpage = () => {
   const wordCount = blocksToText(post.body)
     .split(/\s/)
     .filter((word) => word && word).length;
-  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+  const readingTime = Math.ceil(wordCount / WORDS_PER_MINUTE);
 
   const setInView = (inView: boolean, entry: IntersectionObserverEntry) => {
     if (inView) {
@@ -49,9 +58,9 @@ export const Postpage = () => {
 
   const richTextComponents: PortableTextComponents = {
     types: {
-      image: ({ value }) => (
+      image: ({ value }: { value: { imageUrl: string; alt: string } }) => (
         <div className={s.imageWrapper}>
-          <img className={s.image} src={value.imageUrl} alt="Rich Text Image" />
+          <img className={s.image} src={value.imageUrl} alt={value.alt} />
         </div>
       ),
     },

@@ -38,25 +38,28 @@ export function translite(str: string) {
     э: "e",
     ю: "u",
     я: "ya",
+    ь: "",
+    ъ: "",
+    й: "i",
   };
 
   type latinObj = typeof ru;
+  type Key = keyof latinObj;
 
   const n_str = [];
-
-  str = str.replace(/[ъь]+/g, "").replace(/й/g, "i");
-
   for (let i = 0; i < str.length; ++i) {
-    n_str.push(
-      ru[str[i] as keyof latinObj] ||
-        (ru[str[i].toLowerCase() as keyof latinObj] == undefined && str[i]) ||
-        ru[str[i].toLowerCase() as keyof latinObj].toUpperCase()
-    );
+    const key = str[i].toLowerCase();
+
+    const value = ru[key as Key];
+    if (!value) {
+      n_str.push(str[i]);
+    }
+
+    n_str.push(value);
   }
 
   return n_str.join("");
 }
-
 export function textToAnchor(text: string) {
   text = translite(text);
   return text.toLowerCase().replaceAll(" ", "-");

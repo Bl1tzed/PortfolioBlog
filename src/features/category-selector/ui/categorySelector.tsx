@@ -1,6 +1,6 @@
 import { CATEGORIES } from "@shared/consts";
 import { Button } from "@shared/ui/button";
-import { Category } from "@shared/consts/categories";
+import { type Category } from "@shared/consts";
 
 import s from "./categorySelector.module.scss";
 

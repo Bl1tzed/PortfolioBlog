@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import { ContentBlock } from "@shared/ui/content-block";
-import { PostBlock } from "@widgets/post-block";
-import { PostList } from "@widgets/post-list";
-import { CategorySelector } from "@features/category-selector";
 import { Post } from "@shared/types";
 import { client } from "@shared/api/client";
-import { useEffect, useState } from "react";
+import { CategorySelector } from "@features/category-selector";
+import { PostBlock } from "@widgets/post-block";
+import { PostList } from "@widgets/post-list";
+import { queryBlogpage } from "../model/queries/queryBlogpage";
 
 import s from "./blogpage.module.scss";
 
@@ -15,20 +16,10 @@ export const Blogpage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     async function getPosts() {
-      const posts = await client.fetch(
-        `*[_type == 'post'
-        && !(_id in path("drafts.**")) 
-        ${
-          activeCategory != "All"
-            ? `&& category -> title == "${activeCategory}"`
-            : ""
-        }]
-        {"slug": slug.current,"category": category -> title, title, subtitle, published, author, "mainImageUrl": mainImage.asset->url}
-        `
-      );
-
+      const posts = await client.fetch(queryBlogpage(activeCategory));
       setPosts(posts);
     }
+
     getPosts();
   }, [activeCategory]);
 

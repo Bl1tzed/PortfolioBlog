@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { LegacyRef, ReactNode } from "react";
+import { ReactNode } from "react";
 import clsx from "clsx";
 
 import s from "./content-block.module.scss";
@@ -7,7 +7,6 @@ import s from "./content-block.module.scss";
 type ContentBlockProps = VariantProps<typeof contentBlockVariants> & {
   children: ReactNode;
   className?: string;
-  ref?: LegacyRef<HTMLDivElement> | undefined;
 };
 
 const contentBlockVariants = cva(s.contentBlock, {

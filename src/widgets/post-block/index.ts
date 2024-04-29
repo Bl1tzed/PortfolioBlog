@@ -1,1 +1,1 @@
-export { PostBlock } from "./postBlock";
+export { PostBlock } from "./ui/postBlock";

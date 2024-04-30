@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useInView, InView } from "react-intersection-observer";
+import { InView } from "react-intersection-observer";
 import { client } from "@shared/api/client";
 import { type DetailedPost } from "@shared/types";
 import { ContentBlock } from "@shared/ui/content-block";
@@ -21,10 +21,6 @@ import s from "./postpage.module.scss";
 const WORDS_PER_MINUTE = 183;
 
 export const Postpage = () => {
-  const { ref } = useInView({
-    threshold: 0.2,
-  });
-
   const [post, setPost] = useState<DetailedPost | null>(null);
   const [visibleSection, setVisibleSection] = useState<string | null>("");
   const { postSlug } = useParams();
@@ -67,7 +63,12 @@ export const Postpage = () => {
     block: {
       normal: ({ children }) => <p className={s.normalText}>{children}</p>,
       h2: ({ children, value }) => (
-        <InView onChange={setInView} threshold={0.8} key={toPlainText(value)}>
+        <InView
+          onChange={setInView}
+          threshold={0}
+          rootMargin={"-15% 0px -85% 0px"}
+          key={toPlainText(value)}
+        >
           {({ ref }) => {
             return (
               <h3
@@ -118,7 +119,11 @@ export const Postpage = () => {
           <div className={s.postContent}>
             <div className={s.postTextBlock}>
               <ContentBlock border borderRight className={s.introduction}>
-                <InView onChange={setInView} threshold={0.8}>
+                <InView
+                  onChange={setInView}
+                  rootMargin={"-15% 0px -85% 0px"}
+                  threshold={0}
+                >
                   {({ ref }) => {
                     return (
                       <div
@@ -134,12 +139,10 @@ export const Postpage = () => {
                 <div className={s.introductionSubTitle}>{post.subtitle}</div>
               </ContentBlock>
               <ContentBlock border borderRight className={s.postMainText}>
-                <div ref={ref}>
-                  <PortableText
-                    value={post.body}
-                    components={richTextComponents}
-                  />
-                </div>
+                <PortableText
+                  value={post.body}
+                  components={richTextComponents}
+                />
               </ContentBlock>
             </div>
             <ContentBlock border borderLeft className={s.postInfo}>

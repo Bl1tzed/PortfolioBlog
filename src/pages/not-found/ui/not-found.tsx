@@ -5,7 +5,7 @@ import s from "./not-found.module.scss";
 
 export const NotFound = () => {
   return (
-    <div className={s.content}>
+    <main className={s.content}>
       <div className={s.heading}>Not Found 404</div>
       <Link to="/">
         <Button
@@ -16,6 +16,6 @@ export const NotFound = () => {
           Главная страница
         </Button>
       </Link>
-    </div>
+    </main>
   );
 };

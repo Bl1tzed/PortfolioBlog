@@ -26,7 +26,7 @@ export const Blogpage = () => {
   if (!posts) return null;
 
   return (
-    <div className={s.content}>
+    <main className={s.content}>
       <ContentBlock className={s.heading} bgColor="dark_08">
         <div className={s.headingTitle}>Последние Посты: Будь в Курсе</div>
         <div className={s.headingSubTitle}>
@@ -40,6 +40,6 @@ export const Blogpage = () => {
       />
       {posts.length > 0 && <PostBlock {...posts[0]} />}
       {posts.length > 1 && <PostList posts={posts.slice(1)} />}
-    </div>
+    </main>
   );
 };

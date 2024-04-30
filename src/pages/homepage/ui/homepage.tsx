@@ -4,7 +4,7 @@ import s from "./homepage.module.scss";
 
 export const Homepage = () => {
   return (
-    <div className={s.content}>
+    <main className={s.content}>
       <div className={s.text}>Homepage</div>
       <Button variant="primary" size="small">
         Contact Us
@@ -21,6 +21,6 @@ export const Homepage = () => {
         Read More
       </Button>
       <SvgButton />
-    </div>
+    </main>
   );
 };

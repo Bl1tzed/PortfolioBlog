@@ -104,7 +104,7 @@ export const Postpage = () => {
   };
 
   return (
-    <div className={s.content}>
+    <main className={s.content}>
       <div className={s.post}>
         <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img
@@ -222,6 +222,6 @@ export const Postpage = () => {
           </ContentBlock>
         )}
       </div>
-    </div>
+    </main>
   );
 };

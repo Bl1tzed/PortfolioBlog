@@ -17,6 +17,8 @@
 html {
   scroll-behavior: smooth;
   text-wrap: balance;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 
 body {

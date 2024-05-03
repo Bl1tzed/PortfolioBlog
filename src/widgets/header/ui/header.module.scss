@@ -5,6 +5,7 @@
   background-color: $dark_10;
   border-top: 1px solid $dark_15;
   border-bottom: 1px solid $dark_15;
+  position: relative;
 }
 
 .headerInner {
@@ -24,6 +25,82 @@
 
 .headerButton {
   width: 140px;
+}
+
+.navButton {
+  width: 30px;
+  height: 19px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+.navButton span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: $white;
+  border-radius: 4px;
+  opacity: 1;
+  right: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.navButton span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.navButton span:nth-child(2) {
+  top: 8px;
+  transform-origin: left center;
+}
+
+.navButton span:nth-child(3) {
+  top: 16px;
+  width: 50%;
+  transform-origin: left center;
+}
+
+.navButton.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: -3px;
+}
+
+.navButton.open span:nth-child(2) {
+  transform: rotate(-45deg);
+  top: 18px;
+}
+
+.navButton.open span:nth-child(3) {
+  width: 0%;
+  opacity: 0;
+}
+
+.mobileMenu {
+  --banner-height: 40px;
+  --header-height: 65px;
+
+  position: absolute;
+  height: calc(100% - var(--banner-height) - var(--header-height));
+  top: calc(var(--banner-height) + var(--header-height));
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark_08;
+  z-index: 10;
+  overflow-x: hidden;
+}
+
+.mobileMenuButton {
+  font-size: 18px;
 }
 
 @media screen and (max-width: $xxl) {
@@ -49,5 +126,11 @@
   }
   .headerButton {
     display: none;
+  }
+  .navigationMenu {
+    display: none;
+  }
+  .navButton {
+    display: block;
   }
 }

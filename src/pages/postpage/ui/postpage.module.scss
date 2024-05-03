@@ -336,6 +336,10 @@ h3:nth-child(1) {
     width: 100%;
     justify-content: space-between;
     font-size: 14px;
+    gap: 10px;
+  }
+  .infoItem {
+    width: 150px;
   }
   .infoItemLabel {
     font-size: 14px;

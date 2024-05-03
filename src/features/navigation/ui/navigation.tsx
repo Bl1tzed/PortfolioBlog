@@ -1,6 +1,7 @@
-import { NAVIGATION_CONTENT } from "@shared/consts";
 import { NavLink } from "react-router-dom";
 import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
+import { NAVIGATION_ANIMATIONS, NAVIGATION_CONTENT } from "@shared/consts";
 import clsx from "clsx";
 
 import s from "./navigation.module.scss";
@@ -18,22 +19,31 @@ const navigationVariants = cva(s.button, {
 });
 
 export const Navigation = (
-  props: VariantProps<typeof navigationVariants> & { className?: string }
+  props: VariantProps<typeof navigationVariants> & {
+    className?: string;
+    isOpen?: boolean;
+  }
 ) => {
-  const { className, variant } = props;
+  const { className, variant, isOpen } = props;
 
   return (
     <nav className={className}>
       <ul className={clsx(navigationVariants({ variant }))}>
-        {NAVIGATION_CONTENT.map((item) => (
-          <li key={item.title} className={clsx(s.navigationItem)}>
+        {NAVIGATION_CONTENT.map((item, index) => (
+          <motion.li
+            key={item.title}
+            variants={NAVIGATION_ANIMATIONS}
+            className={clsx(s.navigationItem)}
+            animate={isOpen ? "open" : "closed"}
+            transition={{ duration: 0.6, delay: (index + 2) * 0.3 }}
+          >
             <NavLink
               to={item.link}
               className={({ isActive }) => clsx(isActive && s.activePage)}
             >
               {item.title}
             </NavLink>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </nav>

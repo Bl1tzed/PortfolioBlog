@@ -7,6 +7,24 @@ import { Navigation } from "@features/navigation";
 import clsx from "clsx";
 
 import s from "./header.module.scss";
+import { NAVIGATION_ANIMATIONS, NAVIGATION_CONTENT } from "@shared/consts";
+
+const variants = {
+  closed: {
+    x: "100%",
+    transition: {
+      ease: easeInOut,
+      duration: 0.6,
+    },
+  },
+  open: {
+    x: "0%",
+    transition: {
+      ease: easeInOut,
+      duration: 0.6,
+    },
+  },
+};
 
 export const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -16,23 +34,6 @@ export const Header = () => {
     setMenuIsOpen(false);
   }, [location]);
 
-  const variants = {
-    closed: {
-      x: "100%",
-      transition: {
-        ease: easeInOut,
-        duration: 1,
-      },
-    },
-    open: {
-      x: "0%",
-      transition: {
-        ease: easeInOut,
-        duration: 1,
-      },
-    },
-  };
-
   return (
     <>
       <header className={s.header}>
@@ -40,7 +41,7 @@ export const Header = () => {
           <NavLink to="/">
             <div className={s.logo}>Bibiblog</div>
           </NavLink>
-          <Navigation className={s.navigationMenu} />
+          <Navigation className={s.navigationMenu} isOpen={true} />
           <div className={s.headerButton}>
             <Button variant="primary" size="small">
               Contact Us
@@ -63,10 +64,19 @@ export const Header = () => {
           animate={menuIsOpen ? "open" : "closed"}
           className={clsx(s.mobileMenu, menuIsOpen && s.open)}
         >
-          <Navigation variant={"mobileMenu"} />
-          <Button variant="primary" size="big" className={s.mobileMenuButton}>
-            Contact Us
-          </Button>
+          <Navigation variant={"mobileMenu"} isOpen={menuIsOpen} />
+          <motion.div
+            variants={NAVIGATION_ANIMATIONS}
+            animate={menuIsOpen ? "open" : "closed"}
+            transition={{
+              duration: 0.6,
+              delay: (NAVIGATION_CONTENT.length + 2) * 0.3,
+            }}
+          >
+            <Button variant="primary" size="big" className={s.mobileMenuButton}>
+              Contact Us
+            </Button>
+          </motion.div>
         </motion.aside>
       </RemoveScroll>
     </>

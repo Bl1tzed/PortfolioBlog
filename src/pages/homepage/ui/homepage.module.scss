@@ -1,0 +1,69 @@
+.heroBlock {
+  display: flex;
+}
+
+.heroTitles {
+  padding: 150px 50px 100px $c_pad_d;
+  z-index: 5;
+}
+
+.heroCtaWrapper {
+  justify-content: flex-end;
+  position: relative;
+}
+
+.heroCta {
+  padding: 80px $c_pad_d 80px 80px;
+  width: 40svw;
+}
+
+.aboveTitle {
+  @extend .OpenSans600;
+
+  color: $dark_40;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.mainTitle {
+  @extend .OpenSans600;
+
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  @extend .Inter400;
+
+  color: $gray_50;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.titleCta {
+  @extend .Inter500;
+
+  font-size: 24px;
+  line-height: 150%;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 8;
+}
+
+.subtitleCta {
+  @extend .Inter500;
+
+  font-size: 18px;
+  line-height: 150%;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 8;
+}
+
+.imageCta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: opacity(0.5);
+  height: 100%;
+}

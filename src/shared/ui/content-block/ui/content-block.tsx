@@ -7,6 +7,7 @@ import s from "./content-block.module.scss";
 type ContentBlockProps = VariantProps<typeof contentBlockVariants> & {
   children: ReactNode;
   className?: string;
+  outerClassName?: string;
 };
 
 const contentBlockVariants = cva(s.contentBlock, {
@@ -29,13 +30,21 @@ const contentBlockVariants = cva(s.contentBlock, {
 });
 
 export const ContentBlock = (props: ContentBlockProps) => {
-  const { border, borderLeft, borderRight, bgColor, children, className } =
-    props;
+  const {
+    border,
+    borderLeft,
+    borderRight,
+    bgColor,
+    children,
+    className,
+    outerClassName,
+  } = props;
 
   return (
     <div
       className={clsx(
-        contentBlockVariants({ borderLeft, borderRight, border, bgColor })
+        contentBlockVariants({ borderLeft, borderRight, border, bgColor }),
+        outerClassName
       )}
     >
       <div className={clsx(s.contentBlockInner, className)}>{children}</div>

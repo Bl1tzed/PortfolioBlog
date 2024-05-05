@@ -7,8 +7,8 @@ export const NAVIGATION_ANIMATIONS = {
     opacity: 0,
     y: 20,
     transition: {
-      duration: 0.3,
-      delay: 0,
+      duration: 0,
+      delay: 0.3,
     },
   },
 };

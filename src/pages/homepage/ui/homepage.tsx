@@ -18,7 +18,7 @@ export const Homepage = () => {
           </div>
         </ContentBlock>
         <ContentBlock className={s.heroCta} outerClassName={s.heroCtaWrapper}>
-          <img src="abstractDesign2.png" alt="" className={s.imageCta} />
+          {/* <img src="abstractDesign2.png" alt="" className={s.imageCta} /> */}
           <div className={s.titleCta}>Explore 1000+ resources</div>
           <div className={s.subtitleCta}>
             Over 1,000 articles on emerging tech trends and breakthroughs.

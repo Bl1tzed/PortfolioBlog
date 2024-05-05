@@ -6,7 +6,7 @@
   border-top: 1px solid $dark_15;
   border-bottom: 1px solid $dark_15;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 .headerInner {
@@ -85,12 +85,9 @@
 }
 
 .mobileMenu {
-  --banner-height: 40px;
-  --header-height: 65px;
-
   position: absolute;
-  height: calc(100% - var(--banner-height) - var(--header-height));
-  top: calc(var(--banner-height) + var(--header-height));
+  height: 100svh;
+  top: 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -98,10 +95,16 @@
   background-color: $dark_08;
   z-index: 10;
   overflow-x: hidden;
+  justify-content: center;
 }
 
 .mobileMenuButton {
   font-size: 18px;
+}
+
+.asideBox {
+  overflow: hidden;
+  position: relative;
 }
 
 @media screen and (max-width: $xxl) {

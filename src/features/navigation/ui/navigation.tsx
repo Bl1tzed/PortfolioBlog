@@ -35,7 +35,7 @@ export const Navigation = (
             variants={NAVIGATION_ANIMATIONS}
             className={clsx(s.navigationItem)}
             animate={isOpen ? "open" : "closed"}
-            transition={{ duration: 0.6, delay: (index + 2) * 0.3 }}
+            transition={{ duration: 0.3, delay: (index + 1) * 0.3 }}
           >
             <NavLink
               to={item.link}

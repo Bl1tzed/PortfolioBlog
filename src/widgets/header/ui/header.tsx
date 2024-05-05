@@ -14,14 +14,14 @@ const variants = {
     x: "100%",
     transition: {
       ease: easeInOut,
-      duration: 0.6,
+      duration: 0.3,
     },
   },
   open: {
     x: "0%",
     transition: {
       ease: easeInOut,
-      duration: 0.6,
+      duration: 0.3,
     },
   },
 };
@@ -69,8 +69,8 @@ export const Header = () => {
             variants={NAVIGATION_ANIMATIONS}
             animate={menuIsOpen ? "open" : "closed"}
             transition={{
-              duration: 0.6,
-              delay: (NAVIGATION_CONTENT.length + 2) * 0.3,
+              duration: 0.3,
+              delay: (NAVIGATION_CONTENT.length + 1) * 0.3,
             }}
           >
             <Button variant="primary" size="big" className={s.mobileMenuButton}>

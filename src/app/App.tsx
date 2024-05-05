@@ -12,7 +12,7 @@ import { NotFound } from "@pages/not-found";
 
 function App() {
   return (
-    <>
+    <div className={s.page}>
       <div className={s.wrapper}>
         <Banner>This project is on WIP</Banner>
         <Header />
@@ -25,7 +25,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -3,25 +3,29 @@ import { useLocation, NavLink } from "react-router-dom";
 import { easeInOut, motion } from "framer-motion";
 import { RemoveScroll } from "react-remove-scroll";
 import { Button } from "@shared/ui/button";
+import {
+  DURATION_SHORT,
+  NAVIGATION_ANIMATIONS,
+  NAVIGATION_CONTENT,
+} from "@shared/consts";
 import { Navigation } from "@features/navigation";
 import clsx from "clsx";
 
 import s from "./header.module.scss";
-import { NAVIGATION_ANIMATIONS, NAVIGATION_CONTENT } from "@shared/consts";
 
 const variants = {
   closed: {
     x: "100%",
     transition: {
       ease: easeInOut,
-      duration: 0.3,
+      duration: DURATION_SHORT,
     },
   },
   open: {
     x: "0%",
     transition: {
       ease: easeInOut,
-      duration: 0.3,
+      duration: DURATION_SHORT,
     },
   },
 };
@@ -29,6 +33,8 @@ const variants = {
 export const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const location = useLocation();
+
+  const animationState = menuIsOpen ? "open" : "closed";
 
   useEffect(() => {
     setMenuIsOpen(false);
@@ -61,16 +67,16 @@ export const Header = () => {
         <motion.aside
           initial={false}
           variants={variants}
-          animate={menuIsOpen ? "open" : "closed"}
+          animate={animationState}
           className={clsx(s.mobileMenu, menuIsOpen && s.open)}
         >
           <Navigation variant={"mobileMenu"} isOpen={menuIsOpen} />
           <motion.div
             variants={NAVIGATION_ANIMATIONS}
-            animate={menuIsOpen ? "open" : "closed"}
+            animate={animationState}
             transition={{
-              duration: 0.3,
-              delay: (NAVIGATION_CONTENT.length + 1) * 0.3,
+              duration: DURATION_SHORT,
+              delay: (NAVIGATION_CONTENT.length + 1) * DURATION_SHORT,
             }}
           >
             <Button variant="primary" size="big" className={s.mobileMenuButton}>

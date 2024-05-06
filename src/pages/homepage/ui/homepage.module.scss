@@ -1,9 +1,27 @@
+:root {
+  --padding: 80px;
+  --hero-vertical-padding: 150px;
+  --corner-padding: 162px;
+  --link-block-vertical-padding: 50px;
+
+  --font-size-mainTitle: 70px;
+  --font-size-aboveTitle: 30px;
+  --font-size-title: 24px;
+  --font-size-blockTitle: 20px;
+  --font-size-blockSubtitle: 20px;
+  --font-size-subtitle: 18px;
+
+  --link-block-button-size: 52px;
+  --link-block-icon-size: 50px;
+}
+
 .heroBlock {
   display: flex;
 }
 
 .heroTitles {
-  padding: 150px 50px 100px $c_pad_d;
+  padding: var(--hero-vertical-padding) var(--padding) var(--padding)
+    var(--corner-padding);
   z-index: 5;
 }
 
@@ -13,7 +31,7 @@
 }
 
 .heroCta {
-  padding: 80px $c_pad_d 80px 80px;
+  padding: var(--padding) var(--corner-padding) var(--padding) var(--padding);
   width: 40svw;
 }
 
@@ -21,14 +39,14 @@
   @extend .OpenSans600;
 
   color: $dark_40;
-  font-size: 30px;
+  font-size: var(--font-size-aboveTitle);
   margin-bottom: 30px;
 }
 
 .mainTitle {
   @extend .OpenSans600;
 
-  font-size: 70px;
+  font-size: var(--font-size-mainTitle);
   margin-bottom: 20px;
 }
 
@@ -36,16 +54,17 @@
   @extend .Inter400;
 
   color: $gray_50;
-  font-size: 18px;
+  font-size: var(--font-size-subtitle);
   line-height: 150%;
 }
 
 .titleCta {
   @extend .Inter500;
 
-  font-size: 24px;
+  font-size: var(--font-size-title);
   line-height: 150%;
   margin-bottom: 14px;
+  width: fit-content;
   position: relative;
   z-index: 8;
 }
@@ -53,7 +72,8 @@
 .subtitleCta {
   @extend .Inter500;
 
-  font-size: 18px;
+  font-size: var(--font-size-subtitle);
+  color: $gray_60;
   line-height: 150%;
   margin-bottom: 30px;
   position: relative;
@@ -66,4 +86,137 @@
   left: 0;
   filter: opacity(0.5);
   height: 100%;
+}
+
+.linkBlocks {
+  display: flex;
+  padding: 0 calc(var(--corner-padding) - var(--padding));
+}
+
+.linkBlock {
+  width: calc(100% / 3);
+  padding: var(--link-block-vertical-padding) var(--padding);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.linkBlockIcon svg {
+  width: var(--link-block-icon-size);
+  height: var(--link-block-icon-size);
+}
+
+.linkBlock:not(:last-of-type) {
+  border-right: 1px solid $dark_15;
+}
+
+.linkBlockMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.linkBlockMainTitle {
+  @extend .Inter500;
+
+  font-size: var(--font-size-blockTitle);
+  margin-bottom: 4px;
+}
+
+.linkBlockMainSubtitle {
+  @extend .Inter400;
+
+  font-size: var(--font-size-subtitle);
+  color: $gray_50;
+}
+
+.linkBlockSubtitle {
+  @extend .Inter400;
+
+  font-size: var(--font-size-blockSubtitle);
+  color: $gray_60;
+}
+
+@media screen and (max-width: $xxl) {
+  :root {
+    --padding: 50px;
+    --hero-vertical-padding: 100px;
+    --corner-padding: 80px;
+    --link-block-vertical-padding: 40px;
+
+    --font-size-mainTitle: 55px;
+    --font-size-aboveTitle: 22px;
+    --font-size-title: 20px;
+    --font-size-blockTitle: 18px;
+    --font-size-blockSubtitle: 16px;
+    --font-size-subtitle: 16px;
+
+    --link-block-icon-size: 40px;
+  }
+  .linkBlock {
+    gap: 20px;
+  }
+  .linkBlockMain {
+    gap: 14px;
+  }
+  .aboveTitle {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  :root {
+    --padding: 16px;
+    --hero-vertical-padding: 30px;
+    --corner-padding: 16px;
+    --link-block-vertical-padding: 30px;
+
+    --font-size-mainTitle: 30px;
+    --font-size-aboveTitle: 18px;
+    --font-size-title: 16px;
+    --font-size-blockTitle: 16px;
+    --font-size-blockSubtitle: 14px;
+    --font-size-subtitle: 14px;
+
+    --link-block-icon-size: 30px;
+  }
+  .heroBlock {
+    flex-direction: column;
+  }
+  .heroTitles {
+    border-bottom: 1px solid $dark_15;
+  }
+  .heroCtaWrapper {
+    display: flex;
+  }
+  .heroCta {
+    width: auto;
+    padding: 40px;
+  }
+  .titleCta {
+    margin-bottom: 4px;
+  }
+  .subtitleCta {
+    margin-bottom: 20px;
+  }
+  .buttonCta {
+    width: 100%;
+    padding: 14px 20px;
+    height: 49px;
+  }
+  .aboveTitle {
+    margin-bottom: 14px;
+  }
+  .linkBlocks {
+    flex-direction: column;
+  }
+  .linkBlock:not(:last-of-type) {
+    border-right: 0;
+    border-bottom: 1px solid $dark_15;
+  }
+  .linkBlock {
+    width: 100%;
+    gap: 16px;
+  }
 }

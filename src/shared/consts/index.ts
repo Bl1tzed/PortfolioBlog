@@ -1,4 +1,4 @@
 export { NAVIGATION_CONTENT } from "./navigationContent";
 export { CATEGORIES } from "./categories";
-export { NAVIGATION_ANIMATIONS } from "./navigationAnimations";
+export { NAVIGATION_ANIMATIONS, DURATION_SHORT } from "./navigationAnimations";
 export { type Category } from "./categories";

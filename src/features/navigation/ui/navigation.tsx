@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from "framer-motion";
-import { NAVIGATION_ANIMATIONS, NAVIGATION_CONTENT } from "@shared/consts";
+import {
+  DURATION_SHORT,
+  NAVIGATION_ANIMATIONS,
+  NAVIGATION_CONTENT,
+} from "@shared/consts";
 import clsx from "clsx";
 
 import s from "./navigation.module.scss";
@@ -35,7 +39,10 @@ export const Navigation = (
             variants={NAVIGATION_ANIMATIONS}
             className={clsx(s.navigationItem)}
             animate={isOpen ? "open" : "closed"}
-            transition={{ duration: 0.3, delay: (index + 1) * 0.3 }}
+            transition={{
+              duration: DURATION_SHORT,
+              delay: (index + 1) * DURATION_SHORT,
+            }}
           >
             <NavLink
               to={item.link}

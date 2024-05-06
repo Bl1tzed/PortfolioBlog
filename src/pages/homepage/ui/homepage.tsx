@@ -1,6 +1,7 @@
 import { ContentBlock } from "@shared/ui/content-block";
 import s from "./homepage.module.scss";
-import { Button } from "@shared/ui/button";
+import { Button, SvgButton } from "@shared/ui/button";
+import { ReactSVG } from "react-svg";
 
 export const Homepage = () => {
   return (
@@ -27,10 +28,66 @@ export const Homepage = () => {
             variant="secondary"
             size="small"
             svgSrc="/svg/arrow-up-right.svg"
+            className={s.buttonCta}
           >
             Посетить блог
           </Button>
         </ContentBlock>
+      </ContentBlock>
+      <ContentBlock>
+        <div className={s.linkBlocks}>
+          <div className={s.linkBlock}>
+            <div className={s.linkBlockIcon}>
+              <ReactSVG src="/svg/block1.svg" />
+            </div>
+            <div className={s.linkBlockMain}>
+              <div className={s.linkBlockMainTitles}>
+                <div className={s.linkBlockMainTitle}>Latest News Updates</div>
+                <div className={s.linkBlockMainSubtitle}>Stay Current</div>
+              </div>
+              <div className={s.linkBlockMainButton}>
+                <SvgButton />
+              </div>
+            </div>
+            <div className={s.linkBlockSubtitle}>
+              Over 1,000 articles published monthly
+            </div>
+          </div>
+          <div className={s.linkBlock}>
+            <div className={s.linkBlockIcon}>
+              <ReactSVG src="/svg/block2.svg" />
+            </div>
+            <div className={s.linkBlockMain}>
+              <div className={s.linkBlockMainTitles}>
+                <div className={s.linkBlockMainTitle}>Latest News Updates</div>
+                <div className={s.linkBlockMainSubtitle}>Stay Current</div>
+              </div>
+              <div className={s.linkBlockMainButton}>
+                <SvgButton />
+              </div>
+            </div>
+            <div className={s.linkBlockSubtitle}>
+              Over 1,000 articles published monthly
+            </div>
+          </div>
+          <div className={s.linkBlock}>
+            <div className={s.linkBlockIcon}>
+              <ReactSVG src="/svg/block3.svg" />
+            </div>
+            <div className={s.linkBlockMain}>
+              <div className={s.linkBlockMainTitles}>
+                <div className={s.linkBlockMainTitle}>Latest News Updates</div>
+                <div className={s.linkBlockMainSubtitle}>Stay Current</div>
+              </div>
+              <div className={s.linkBlockMainButton}>
+                <SvgButton />
+              </div>
+            </div>
+            <div className={s.linkBlockSubtitle}>
+              Over 1,000 articles published monthly
+            </div>
+          </div>
+        </div>
       </ContentBlock>
     </main>
   );

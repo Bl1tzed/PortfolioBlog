@@ -1,3 +1,5 @@
+export const DURATION_SHORT = 0.3;
+
 export const NAVIGATION_ANIMATIONS = {
   open: {
     opacity: 1,
@@ -8,7 +10,7 @@ export const NAVIGATION_ANIMATIONS = {
     y: 20,
     transition: {
       duration: 0,
-      delay: 0.3,
+      delay: DURATION_SHORT,
     },
   },
 };

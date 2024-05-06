@@ -1,7 +1,8 @@
 .svgButton {
-  $size: 52px;
-  height: $size;
-  width: $size;
+  --button-size: 52px;
+  --svg-size: 24px;
+  height: var(--button-size);
+  width: var(--button-size);
   border-radius: 100px;
   background-color: $yellow_55;
   position: relative;
@@ -13,8 +14,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 24px;
-    width: 24px;
+    height: var(--svg-size);
+    width: var(--svg-size);
     stroke: $dark_08;
+  }
+}
+
+@media screen and (max-width: $xxl) {
+  .svgButton {
+    --button-size: 44px;
+    --svg-size: 20px;
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .svgButton {
+    --button-size: 40px;
   }
 }

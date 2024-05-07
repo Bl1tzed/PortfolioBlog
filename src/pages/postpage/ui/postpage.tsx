@@ -156,7 +156,7 @@ export const Postpage = () => {
                   </div>
                   <div className={s.infoItem}>
                     <div className={s.infoItemLabel}>Категория</div>
-                    <div className={s.infoItemText}>{post.category}</div>
+                    <div className={s.infoItemText}>{post.categoryRu}</div>
                   </div>
                 </div>
                 <div className={s.infoBlock}>

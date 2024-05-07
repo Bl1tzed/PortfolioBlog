@@ -11,6 +11,7 @@
   --font-size-blockSubtitle: 20px;
   --font-size-subtitle: 18px;
 
+  --cta-icon-size: 120px;
   --link-block-button-size: 52px;
   --link-block-icon-size: 50px;
 }
@@ -81,11 +82,15 @@
 }
 
 .imageCta {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: opacity(0.5);
-  height: 100%;
+  width: fit-content;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.imageCta svg {
+  width: var(--cta-icon-size);
+  height: var(--cta-icon-size);
 }
 
 .linkBlocks {
@@ -152,6 +157,7 @@
     --font-size-blockSubtitle: 16px;
     --font-size-subtitle: 16px;
 
+    --cta-icon-size: 100px;
     --link-block-icon-size: 40px;
   }
   .linkBlock {
@@ -179,6 +185,7 @@
     --font-size-blockSubtitle: 14px;
     --font-size-subtitle: 14px;
 
+    --cta-icon-size: 80px;
     --link-block-icon-size: 30px;
   }
   .heroBlock {

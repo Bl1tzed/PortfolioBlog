@@ -3,7 +3,8 @@ export const queryBlogpage = (activeCategory: string) => `
 	${activeCategory != "All" ? `&& category -> title == "${activeCategory}"` : ""}]
 	{ 
 		"slug": slug.current,
-		"category": category -> title, 
+		"category": category -> title,
+		"categoryRu": category -> ru,
 		title, 
 		subtitle, 
 		published, 

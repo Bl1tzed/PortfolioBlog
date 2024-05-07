@@ -1,12 +1,11 @@
 import { CATEGORIES } from "@shared/consts";
 import { Button } from "@shared/ui/button";
-import { type Category } from "@shared/consts";
 
 import s from "./categorySelector.module.scss";
 
 type CategorySelectorProps = {
-  activeCategory: Category;
-  setActiveCategory: React.Dispatch<React.SetStateAction<Category>>;
+  activeCategory: string;
+  setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const CategorySelector = ({
@@ -19,14 +18,14 @@ export const CategorySelector = ({
         {CATEGORIES.map((categoryItem) => {
           return (
             <Button
-              key={categoryItem}
+              key={categoryItem.name}
               width="adaptive"
               variant="secondary"
               size="big"
-              active={activeCategory === categoryItem}
-              onClick={() => setActiveCategory(categoryItem)}
+              active={activeCategory === categoryItem.name}
+              onClick={() => setActiveCategory(categoryItem.name)}
             >
-              {categoryItem}
+              {categoryItem.ru}
             </Button>
           );
         })}

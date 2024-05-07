@@ -10,7 +10,7 @@ export const PostBlock = ({
   slug,
   title,
   subtitle,
-  category,
+  categoryRu,
   published,
   author,
   mainImageUrl,
@@ -28,7 +28,7 @@ export const PostBlock = ({
         <div className={s.postSecondaryInfo}>
           <div className={s.postSecondaryBlock}>
             <div className={s.postLabel}>Категория</div>
-            <div className={s.postSecondaryText}>{category}</div>
+            <div className={s.postSecondaryText}>{categoryRu}</div>
           </div>
           <div className={s.postSecondaryBlock}>
             <div className={s.postLabel}>Дата публикации</div>

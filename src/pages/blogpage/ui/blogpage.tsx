@@ -8,13 +8,14 @@ import { PostList } from "@widgets/post-list";
 import { queryBlogpage } from "../model/queries/queryBlogpage";
 
 import s from "./blogpage.module.scss";
+import { useLocation } from "react-router-dom";
 
 export const Blogpage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [posts, setPosts] = useState<Post[] | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     async function getPosts() {
       const posts = await client.fetch(queryBlogpage(activeCategory));
       setPosts(posts);
@@ -22,6 +23,10 @@ export const Blogpage = () => {
 
     getPosts();
   }, [activeCategory]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   if (!posts) return null;
 

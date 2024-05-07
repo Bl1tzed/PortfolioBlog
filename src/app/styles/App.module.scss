@@ -24,21 +24,17 @@ body {
   background-color: $dark_08;
   color: $white;
   font-size: 16px;
-  overflow-x: hidden;
-}
-
-.page {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .wrapper {
   min-height: 100svh;
-  overflow: hidden;
+  overflow: clip;
   position: relative;
 }
 
-a:active, /* активная/посещенная ссылка */
-a:hover,  /* при наведении */
+a:active,
+a:hover,
 a {
   text-decoration: none;
   color: #fff;

@@ -17,6 +17,7 @@ export const queryPostpage = (postSlug: string) => `
 			"slug": slug.current
 		},
 		"category": category -> title,
+		"categoryRu": category -> ru,
 		title,
 		subtitle,
 		published,

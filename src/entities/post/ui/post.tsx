@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import s from "./post.module.scss";
 
-export const Post = ({ slug, title, category, mainImageUrl }: PostProps) => {
+export const Post = ({ slug, title, categoryRu, mainImageUrl }: PostProps) => {
   return (
     <div className={s.post}>
       <img className={s.postImage} src={mainImageUrl} alt="image" />
       <div className={s.postInfo}>
         <div className={s.postTitles}>
           <div className={s.postTitle}>{title}</div>
-          <div className={s.postCategory}>{category}</div>
+          <div className={s.postCategory}>{categoryRu}</div>
         </div>
       </div>
       <Link to={`/blog/${slug}`}>

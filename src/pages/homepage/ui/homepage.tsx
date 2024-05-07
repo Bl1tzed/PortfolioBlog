@@ -2,6 +2,7 @@ import { ContentBlock } from "@shared/ui/content-block";
 import s from "./homepage.module.scss";
 import { Button, SvgButton } from "@shared/ui/button";
 import { ReactSVG } from "react-svg";
+import { motion } from "framer-motion";
 
 export const Homepage = () => {
   return (
@@ -19,19 +20,34 @@ export const Homepage = () => {
           </div>
         </ContentBlock>
         <ContentBlock className={s.heroCta} outerClassName={s.heroCtaWrapper}>
-          {/* <img src="abstractDesign2.png" alt="" className={s.imageCta} /> */}
-          <div className={s.titleCta}>Explore 1000+ resources</div>
-          <div className={s.subtitleCta}>
-            Over 1,000 articles on emerging tech trends and breakthroughs.
-          </div>
-          <Button
-            variant="secondary"
-            size="small"
-            svgSrc="/svg/arrow-up-right.svg"
-            className={s.buttonCta}
+          <motion.div
+            className={s.imageCta}
+            initial={{ scale: 0 }}
+            animate={{ rotate: 360, scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ rotate: 180, scale: 0.9 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
           >
-            Посетить блог
-          </Button>
+            <ReactSVG src="/svg/logoIcon.svg" />
+          </motion.div>
+          <div>
+            <div className={s.titleCta}>Explore 1000+ resources</div>
+            <div className={s.subtitleCta}>
+              Over 1,000 articles on emerging tech trends and breakthroughs.
+            </div>
+            <Button
+              variant="secondary"
+              size="small"
+              svgSrc="/svg/arrow-up-right.svg"
+              className={s.buttonCta}
+            >
+              Посетить блог
+            </Button>
+          </div>
         </ContentBlock>
       </ContentBlock>
       <ContentBlock>

@@ -1,0 +1,96 @@
+:root {
+  --padding: 80px;
+  --corner-padding: 162px;
+  --social-link-padding: 18px 30px;
+
+  --header-margin: 50px;
+  --button-gap: 15px;
+
+  --font-size-header: 20px;
+  --font-size-button: 18px;
+}
+
+.popupMessage {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  opacity: 0;
+
+  border: 1px solid $dark_15;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupMessageText {
+  @extend .Inter500;
+
+  opacity: 0;
+}
+.contacts {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $dark_15;
+}
+
+.contactBlock {
+  flex-grow: 1;
+}
+
+.contactInfo {
+  padding: var(--padding) var(--padding) var(--padding) var(--corner-padding);
+}
+
+.contactLinks {
+  padding: var(--padding) var(--corner-padding) var(--padding) var(--padding);
+}
+
+.contactHeader {
+  @extend .Inter500;
+
+  font-size: var(--font-size-button);
+  margin-bottom: var(--header-margin);
+}
+
+.contactLinksBlock {
+  display: flex;
+  gap: 20px;
+}
+
+.contactLink {
+  padding: var(--social-link-padding);
+  background-color: $dark_10;
+  border-radius: 6px;
+  border: 1px solid $dark_15;
+}
+
+.contactButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--button-gap);
+}
+
+.copyButton {
+  font-size: var(--font-size-button);
+}
+
+@media screen and (max-width: $xxl) {
+  :root {
+    --padding: 80px;
+    --corner-padding: 162px;
+    --social-link-padding: 18px 30px;
+
+    --header-margin: 50px;
+    --button-gap: 15px;
+
+    --font-size-header: 20px;
+    --font-size-button: 18px;
+  }
+}

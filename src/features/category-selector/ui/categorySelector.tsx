@@ -1,11 +1,11 @@
-import { CATEGORIES } from "@shared/consts";
+import { CATEGORIES, type Category } from "@shared/consts";
 import { Button } from "@shared/ui/button";
 
 import s from "./categorySelector.module.scss";
 
 type CategorySelectorProps = {
-  activeCategory: string;
-  setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
+  activeCategory: Category;
+  setActiveCategory: React.Dispatch<React.SetStateAction<Category>>;
 };
 
 export const CategorySelector = ({

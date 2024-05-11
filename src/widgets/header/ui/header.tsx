@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink, Link } from "react-router-dom";
 import { easeInOut, motion } from "framer-motion";
 import { RemoveScroll } from "react-remove-scroll";
 import { Button } from "@shared/ui/button";
@@ -49,9 +49,11 @@ export const Header = () => {
           </NavLink>
           <Navigation className={s.navigationMenu} isOpen={true} />
           <div className={s.headerButton}>
-            <Button variant="primary" size="small">
-              Contact Us
-            </Button>
+            <Link to="/contact">
+              <Button variant="primary" size="small">
+                Contact Us
+              </Button>
+            </Link>
           </div>
           <button
             className={clsx(s.navButton, menuIsOpen && s.open)}

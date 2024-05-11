@@ -9,7 +9,7 @@
 
 // export type Category = (typeof CATEGORIES)[number];
 
-export const CATEGORIES: Category[] = [
+export const CATEGORIES = [
   { name: "All", ru: "Все" },
   { name: "Technology", ru: "Технология" },
   { name: "Politics", ru: "Политика" },
@@ -18,7 +18,4 @@ export const CATEGORIES: Category[] = [
   { name: "Sports", ru: "Спорт" },
 ];
 
-export type Category = {
-  name: string;
-  ru: string;
-};
+export type Category = (typeof CATEGORIES)[number]["name"];

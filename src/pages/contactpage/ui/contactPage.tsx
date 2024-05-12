@@ -44,7 +44,7 @@ export const ContactPage = () => {
             <Button
               variant="secondary"
               size="big"
-              svgSrc="/svg/arrow-up-right.svg"
+              svgSrc="/svg/clipboard.svg"
               onClick={(e) => handleAnimate(e)}
               className={s.copyButton}
             >
@@ -53,7 +53,7 @@ export const ContactPage = () => {
             <Button
               variant="secondary"
               size="big"
-              svgSrc="/svg/arrow-up-right.svg"
+              svgSrc="/svg/clipboard.svg"
               onClick={(e) => handleAnimate(e)}
               className={s.copyButton}
             >

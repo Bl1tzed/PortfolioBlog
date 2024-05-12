@@ -1,4 +1,5 @@
-import { Header } from "@widgets/header";
+import s from "./styles/App.module.scss";
+
 import { Route, Routes } from "react-router-dom";
 import { Blogpage } from "@pages/blogpage";
 import { Homepage } from "@pages/homepage";
@@ -6,10 +7,9 @@ import { Postpage } from "@pages/postpage";
 import { PortfolioPage } from "@pages/portfolio";
 import { NotFoundPage } from "@pages/notfound";
 import { ContactPage } from "@pages/contactpage";
+import { Header } from "@widgets/header";
 import { Banner } from "@widgets/banner";
 import { Footer } from "@widgets/footer";
-
-import s from "./styles/App.module.scss";
 
 function App() {
   return (

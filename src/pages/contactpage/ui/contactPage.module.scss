@@ -1,15 +1,3 @@
-:root {
-  --padding: 80px;
-  --corner-padding: 162px;
-  --social-link-padding: 18px 30px;
-
-  --header-margin: 50px;
-  --button-gap: 15px;
-
-  --font-size-header: 20px;
-  --font-size-button: 18px;
-}
-
 .popupMessage {
   position: fixed;
   bottom: -50px;
@@ -81,16 +69,11 @@
   font-size: var(--font-size-button);
 }
 
-@media screen and (max-width: $xxl) {
-  :root {
-    --padding: 80px;
-    --corner-padding: 162px;
-    --social-link-padding: 18px 30px;
-
-    --header-margin: 50px;
-    --button-gap: 15px;
-
-    --font-size-header: 20px;
-    --font-size-button: 18px;
+@media screen and (max-width: $lg) {
+  .contacts {
+    flex-direction: column;
+  }
+  .contactInfo {
+    border-bottom: 1px solid $dark_15;
   }
 }

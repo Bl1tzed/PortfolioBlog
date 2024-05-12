@@ -15,17 +15,23 @@ import s from "./header.module.scss";
 
 const variants = {
   closed: {
-    x: "100%",
+    clipPath: "circle(0px at 100% 0%)",
     transition: {
       ease: easeInOut,
       duration: DURATION_SHORT,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
     },
   },
   open: {
-    x: "0%",
+    clipPath: `circle(${650 * 2 + 200}px at 100% 0%)`,
     transition: {
       ease: easeInOut,
       duration: DURATION_SHORT,
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
     },
   },
 };
@@ -78,6 +84,7 @@ export const Header = () => {
             animate={animationState}
             transition={{
               duration: DURATION_SHORT,
+
               delay: (NAVIGATION_CONTENT.length + 1) * DURATION_SHORT,
             }}
           >

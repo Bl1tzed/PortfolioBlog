@@ -1,5 +1,69 @@
 @import "normalize";
 
+:root {
+  --padding: 80px;
+  --corner-padding: 162px;
+  --hero-vertical-padding: 150px;
+  --social-link-padding: 18px 30px;
+  --link-block-vertical-padding: 50px;
+
+  --header-margin: 50px;
+  --button-gap: 15px;
+
+  --font-size-mainTitle: 70px;
+  --font-size-aboveTitle: 30px;
+  --font-size-title: 24px;
+  --font-size-blockTitle: 20px;
+  --font-size-blockSubtitle: 20px;
+  --font-size-header: 20px;
+  --font-size-subtitle: 18px;
+  --font-size-button: 18px;
+
+  --cta-icon-size: 120px;
+  --link-block-button-size: 52px;
+  --link-block-icon-size: 50px;
+
+  @media screen and (max-width: $xxl) {
+    --padding: 50px;
+    --hero-vertical-padding: 100px;
+    --corner-padding: 80px;
+    --social-link-padding: 14px 24px;
+    --link-block-vertical-padding: 40px;
+
+    --header-margin: 30px;
+    --button-gap: 10px;
+
+    --font-size-mainTitle: 55px;
+    --font-size-aboveTitle: 22px;
+    --font-size-title: 20px;
+    --font-size-blockTitle: 18px;
+    --font-size-blockSubtitle: 16px;
+    --font-size-subtitle: 16px;
+
+    --cta-icon-size: 100px;
+    --link-block-icon-size: 40px;
+  }
+
+  @media screen and (max-width: $lg) {
+    --padding: 16px;
+    --hero-vertical-padding: 30px;
+    --corner-padding: 16px;
+    --link-block-vertical-padding: 30px;
+
+    --header-margin: 20px;
+
+    --font-size-mainTitle: 30px;
+    --font-size-aboveTitle: 18px;
+    --font-size-title: 16px;
+    --font-size-blockTitle: 16px;
+    --font-size-blockSubtitle: 14px;
+    --font-size-subtitle: 14px;
+
+    --cta-icon-size: 60px;
+    --link-block-icon-size: 30px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 0.5em;
   height: 0.5em;

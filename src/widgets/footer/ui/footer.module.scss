@@ -32,11 +32,6 @@
   gap: 22px;
 }
 
-.footerIcons {
-  display: flex;
-  gap: 20px;
-}
-
 @media screen and (max-width: $xxl) {
   .footer {
     padding: 0 $c_pad_l;
@@ -44,12 +39,6 @@
   .bottomContainer {
     font-size: 14px;
   }
-  // .footerSvg {
-  //   & svg {
-  //     width: 20px;
-  //     height: 20px;
-  //   }
-  // }
 }
 
 @media screen and (max-width: $lg) {
@@ -72,7 +61,6 @@
   .copyright {
     order: 3;
   }
-
   .footerInfo {
     gap: 20px;
     flex-wrap: wrap;

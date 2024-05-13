@@ -47,18 +47,6 @@
   margin-bottom: var(--header-margin);
 }
 
-.contactLinksBlock {
-  display: flex;
-  gap: 20px;
-}
-
-.contactLink {
-  padding: var(--social-link-padding);
-  background-color: $dark_10;
-  border-radius: 6px;
-  border: 1px solid $dark_15;
-}
-
 .contactButtons {
   display: flex;
   flex-direction: column;

@@ -3,13 +3,12 @@ import { Button } from "@shared/ui/button";
 
 import s from "./contactPage.module.scss";
 import { ContentBlock } from "@shared/ui/content-block";
-import { ReactSVG } from "react-svg";
-import { Link } from "react-router-dom";
+import { SocialLinkBlock } from "@shared/ui/social-link-block";
 
 export const ContactPage = () => {
   const [scope, animate] = useAnimate();
 
-  const sequence: AnimationSequence = [
+  const popupMesssageSequence: AnimationSequence = [
     [
       "#popup",
       {
@@ -28,7 +27,7 @@ export const ContactPage = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     navigator.clipboard.writeText((e.target as HTMLButtonElement).innerText);
-    animate(sequence);
+    animate(popupMesssageSequence);
   };
 
   return (
@@ -66,18 +65,7 @@ export const ContactPage = () => {
           outerClassName={s.contactBlock}
         >
           <div className={s.contactHeader}>Социальные сети</div>
-          <div className={s.contactLinksBlock}>
-            <Link to="https://t.me/BlitzedR">
-              <div className={s.contactLink}>
-                <ReactSVG src="/svg/telegram.svg" />
-              </div>
-            </Link>
-            <Link to="https://vk.com/bl1tzed">
-              <div className={s.contactLink}>
-                <ReactSVG src="/svg/vk.svg" />
-              </div>
-            </Link>
-          </div>
+          <SocialLinkBlock variant={"button"} />
         </ContentBlock>
       </div>
       <div id="popup" className={s.popupMessage}>

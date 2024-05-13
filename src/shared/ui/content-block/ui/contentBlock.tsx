@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { ReactNode } from "react";
 import clsx from "clsx";
 
-import s from "./content-block.module.scss";
+import s from "./contentBlock.module.scss";
 
 type ContentBlockProps = VariantProps<typeof contentBlockVariants> & {
   children: ReactNode;

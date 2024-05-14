@@ -30,7 +30,7 @@ export const SocialLinkBlock = (props: SocialLinkBlockProps) => {
         <Link
           key={social.name}
           to={social.link}
-          className={clsx(socialLinkBlockVariants({ variant }))}
+          className={clsx(socialLinkBlockVariants({ variant }), s.socialLink)}
           {...other}
         >
           <ReactSVG src={social.svgSrc} />

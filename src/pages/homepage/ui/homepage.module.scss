@@ -41,7 +41,7 @@
   line-height: 150%;
 }
 
-.titleCta {
+.heroCtaTitle {
   @extend .Inter500;
 
   font-size: var(--font-size-title);
@@ -52,7 +52,7 @@
   z-index: 8;
 }
 
-.subtitleCta {
+.heroCtaSubtitle {
   @extend .Inter500;
 
   font-size: var(--font-size-subtitle);
@@ -63,14 +63,14 @@
   z-index: 8;
 }
 
-.imageCta {
+.heroCtaImage {
   width: fit-content;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
 
-.imageCta svg {
+.heroCtaImage svg {
   width: var(--cta-icon-size);
   height: var(--cta-icon-size);
 }
@@ -78,10 +78,14 @@
 .linkBlocks {
   display: flex;
   padding: 0 calc(var(--corner-padding) - var(--padding));
+  border-bottom: 1px solid $dark_15;
+}
+
+.linkBlockWrapper {
+  width: calc(100% / 3);
 }
 
 .linkBlock {
-  width: calc(100% / 3);
   padding: var(--link-block-vertical-padding) var(--padding);
   display: flex;
   flex-direction: column;
@@ -93,7 +97,7 @@
   height: var(--link-block-icon-size);
 }
 
-.linkBlock:not(:last-of-type) {
+.linkBlockWrapper:not(:last-of-type) {
   border-right: 1px solid $dark_15;
 }
 
@@ -125,6 +129,53 @@
   color: $gray_60;
 }
 
+.ctaBlockHeader {
+  display: flex;
+  padding: var(--padding) var(--corner-padding);
+  gap: var(--padding);
+  align-items: center;
+}
+
+.ctaBlockHeaderIcon {
+  display: flex;
+  gap: var(--padding);
+}
+
+.ctaBlockHeaderSvg svg {
+  height: var(--cta-icon-size);
+  width: var(--cta-icon-size);
+}
+
+.ctaBlockAboveTitle,
+.ctaBlockAboveTitleMobile {
+  @extend .Inter500;
+
+  padding: 6px 10px;
+  background-color: $dark_20;
+  font-size: var(--font-size-blockSubtitle);
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 16px;
+}
+
+.ctaBlockAboveTitleMobile {
+  display: none;
+  margin-bottom: 0;
+}
+
+.ctaBlockTitle {
+  @extend .OpenSans600;
+
+  font-size: var(--font-size-headerTitle);
+  margin-bottom: 30px;
+}
+
+.ctaBlockSubtitle {
+  color: $gray_50;
+  line-height: 150%;
+  font-size: var(--font-size-subtitle);
+}
+
 @media screen and (max-width: $xxl) {
   .linkBlock {
     gap: 20px;
@@ -142,6 +193,9 @@
     flex-direction: column;
   }
   .heroTitles {
+    max-width: 650px;
+  }
+  .heroTitlesWrapper {
     border-bottom: 1px solid $dark_15;
   }
   .heroCtaWrapper {
@@ -151,13 +205,13 @@
     width: auto;
     padding: 40px;
   }
-  .titleCta {
+  .heroCtaTitle {
     margin-bottom: 4px;
   }
-  .subtitleCta {
+  .heroCtaSubtitle {
     margin-bottom: 20px;
   }
-  .buttonCta {
+  .heroCtaButton {
     width: 100%;
     padding: 14px 20px;
     height: 49px;
@@ -167,13 +221,31 @@
   }
   .linkBlocks {
     flex-direction: column;
+    border-bottom: 0;
   }
-  .linkBlock:not(:last-of-type) {
+  .linkBlockWrapper {
     border-right: 0;
     border-bottom: 1px solid $dark_15;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
   .linkBlock {
     width: 100%;
+    max-width: 550px;
     gap: 16px;
+  }
+  .ctaBlockHeader {
+    flex-direction: column;
+    align-items: start;
+  }
+  .ctaBlockHeaderIcon {
+    align-items: center;
+  }
+  .ctaBlockAboveTitle {
+    display: none;
+  }
+  .ctaBlockAboveTitleMobile {
+    display: block;
   }
 }

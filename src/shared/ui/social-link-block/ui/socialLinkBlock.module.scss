@@ -3,6 +3,19 @@
   background-color: $dark_10;
   border-radius: 6px;
   border: 1px solid $dark_15;
+
+  transition: border-color 0.6s;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
+.default {
+  &:hover svg {
+    transition: fill 0.6s;
+    fill: $yellow_55;
+  }
 }
 
 .socialLinksBlock {

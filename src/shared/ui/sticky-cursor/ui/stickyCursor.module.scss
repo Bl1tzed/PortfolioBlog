@@ -1,0 +1,23 @@
+.cursor {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  position: fixed;
+  border: 2px solid $yellow_60;
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: 99;
+  pointer-events: none;
+  overflow: hidden;
+  transition: scale;
+  transform: translate(-50%, -50%);
+  transition: transform 600ms cubic-bezier(0.19, 1, 0.22, 1);
+
+  @media (hover: none) {
+    display: none;
+  }
+}
+
+.pointer {
+  transform: translate(-50%, -50%) scale(0.5);
+}

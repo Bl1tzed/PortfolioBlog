@@ -5,24 +5,53 @@ import { ReactSVG } from "react-svg";
 import { motion } from "framer-motion";
 
 export const Homepage = () => {
+  const blockAnimation = {
+    notInView: {},
+    inViewFirst: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+    inViewSecond: {
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const blockItemsAnimation = {
+    notInView: { x: 100, opacity: 0 },
+    inViewFirst: {
+      opacity: 1,
+      x: 0,
+    },
+    inViewSecond: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
   return (
     <main className={s.content}>
       <ContentBlock border className={s.heroBlock}>
-        <ContentBlock
-          borderRight
-          outerClassName={s.heroTitlesWrapper}
-          className={s.heroTitles}
-        >
-          <div className={s.aboveTitle}>Я жду именно Ваше предложение</div>
-          <div className={s.mainTitle}>
-            Explore the Frontiers of Artificial Intelligence
-          </div>
-          <div className={s.subtitle}>
-            Приветствую вас на сайте Blitzed. Более подробную информацию обо мне
-            вы можете найти на странице "Портфолио", а способы связи со мной на
-            странице "Контакты".
-          </div>
-        </ContentBlock>
+        <div className={s.heroTitlesWrapper}>
+          <motion.div
+            className={s.heroTitles}
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+          >
+            <div className={s.aboveTitle}>Я жду именно Ваше предложение</div>
+            <div className={s.mainTitle}>
+              Explore the Frontiers of Artificial Intelligence
+            </div>
+            <div className={s.subtitle}>
+              Приветствую вас на сайте Blitzed. Более подробную информацию обо
+              мне вы можете найти на странице "Портфолио", а способы связи со
+              мной на странице "Контакты".
+            </div>
+          </motion.div>
+        </div>
         <ContentBlock className={s.heroCta} outerClassName={s.heroCtaWrapper}>
           <motion.div
             className={s.heroCtaImage}
@@ -38,7 +67,7 @@ export const Homepage = () => {
           >
             <ReactSVG src="/svg/logoIcon.svg" />
           </motion.div>
-          <div>
+          <motion.div initial={{ y: -100 }} animate={{ y: 0 }}>
             <div className={s.heroCtaTitle}>Explore 1000+ resources</div>
             <div className={s.heroCtaSubtitle}>
               Over 1,000 articles on emerging tech trends and breakthroughs.
@@ -51,11 +80,15 @@ export const Homepage = () => {
             >
               Посетить блог
             </Button>
-          </div>
+          </motion.div>
         </ContentBlock>
       </ContentBlock>
       <ContentBlock>
-        <div className={s.linkBlocks}>
+        <motion.div
+          className={s.linkBlocks}
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+        >
           <div className={s.linkBlockWrapper}>
             <div className={s.linkBlock}>
               <div className={s.linkBlockIcon}>
@@ -119,31 +152,60 @@ export const Homepage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </ContentBlock>
       <ContentBlock bgColor="dark_10">
-        <div className={s.ctaBlockHeader}>
-          <div className={s.ctaBlockHeaderIcon}>
-            <ReactSVG className={s.ctaBlockHeaderSvg} src="/svg/logoIcon.svg" />
-            <div className={s.ctaBlockAboveTitleMobile}>
+        <motion.div className={s.ctaBlockHeader}>
+          <motion.div
+            className={s.ctaBlockHeaderIcon}
+            variants={blockAnimation}
+            initial="notInView"
+            whileInView="inViewFirst"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={blockItemsAnimation}>
+              <ReactSVG
+                className={s.ctaBlockHeaderSvg}
+                src="/svg/logoIcon.svg"
+              />
+            </motion.div>
+            <motion.div
+              className={s.ctaBlockAboveTitleMobile}
+              variants={blockItemsAnimation}
+            >
               Learn, Connect, and Innovate
-            </div>
-          </div>
-          <div className={s.ctaBlockTitles}>
-            <div className={s.ctaBlockAboveTitle}>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className={s.ctaBlockTitles}
+            variants={blockAnimation}
+            initial="notInView"
+            whileInView="inViewSecond"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className={s.ctaBlockAboveTitle}
+              variants={blockItemsAnimation}
+            >
               Learn, Connect, and Innovate
-            </div>
-            <div className={s.ctaBlockTitle}>
+            </motion.div>
+            <motion.div
+              className={s.ctaBlockTitle}
+              variants={blockItemsAnimation}
+            >
               Be Part of the Future Tech Revolution
-            </div>
-            <div className={s.ctaBlockSubtitle}>
+            </motion.div>
+            <motion.div
+              className={s.ctaBlockSubtitle}
+              variants={blockItemsAnimation}
+            >
               Immerse yourself in the world of future technology. Explore our
               comprehensive resources, connect with fellow tech enthusiasts, and
               drive innovation in the industry. Join a dynamic community of
               forward-thinkers.
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </ContentBlock>
     </main>
   );

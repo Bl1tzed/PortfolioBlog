@@ -8,6 +8,10 @@
   z-index: 5;
 }
 
+.heroTitlesWrapper {
+  border-right: 1px solid $dark_15;
+}
+
 .heroCtaWrapper {
   justify-content: flex-end;
   position: relative;
@@ -224,11 +228,13 @@
     border-bottom: 0;
   }
   .linkBlockWrapper {
-    border-right: 0;
     border-bottom: 1px solid $dark_15;
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+  .linkBlockWrapper:not(:last-of-type) {
+    border-right: 0;
   }
   .linkBlock {
     width: 100%;

@@ -112,6 +112,7 @@ export const Postpage = () => {
             className={s.headingImage}
             src={post.mainImageUrl}
             alt="Heading Image"
+            fetchPriority="high"
           />
           <h1 className={s.headingText}>{post.title}</h1>
         </ContentBlock>

@@ -57,7 +57,7 @@ export const Header = () => {
           <div className={s.headerButton}>
             <Link to="/contact">
               <Button variant="primary" size="small">
-                Contact Us
+                Связаться
               </Button>
             </Link>
           </div>
@@ -88,9 +88,15 @@ export const Header = () => {
               delay: (NAVIGATION_CONTENT.length + 1) * DURATION_SHORT,
             }}
           >
-            <Button variant="primary" size="big" className={s.mobileMenuButton}>
-              Contact Us
-            </Button>
+            <Link to="/contact">
+              <Button
+                variant="primary"
+                size="big"
+                className={s.mobileMenuButton}
+              >
+                Связаться
+              </Button>
+            </Link>
           </motion.div>
         </motion.aside>
       </RemoveScroll>

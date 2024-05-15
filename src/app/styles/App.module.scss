@@ -106,3 +106,17 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $xxxl) {
+  .content {
+    border-right: 1px solid $dark_15;
+    border-left: 1px solid $dark_15;
+  }
+}

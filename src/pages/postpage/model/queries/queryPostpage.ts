@@ -7,7 +7,7 @@ export const queryPostpage = (postSlug: string) => `
 				"imageUrl": asset->url
 			},
 		},
-		"headings": body[style == 'h2' || style == 'h3'],
+		"headings": body[style == 'h2'],
 		"samePosts": *[_type=="post" && references(^.category._ref ) && slug.current != "${postSlug}"]
 		[0..2] | order(published desc)
 		{ 

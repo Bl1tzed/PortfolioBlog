@@ -10,24 +10,28 @@ import { ContactPage } from "@pages/contactpage";
 import { Header } from "@widgets/header";
 import { Banner } from "@widgets/banner";
 import { Footer } from "@widgets/footer";
+import { StickyCursor } from "@shared/ui/sticky-cursor";
 
 function App() {
   return (
-    <div className={s.page}>
-      <div className={s.wrapper}>
-        <Banner>This project is on WIP</Banner>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/blog" element={<Blogpage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog/:postSlug" element={<Postpage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+    <>
+      <StickyCursor />
+      <div className={s.page}>
+        <div className={s.wrapper}>
+          <Banner>This project is on WIP</Banner>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/blog" element={<Blogpage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog/:postSlug" element={<Postpage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 

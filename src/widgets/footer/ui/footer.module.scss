@@ -32,6 +32,10 @@
   gap: 22px;
 }
 
+.footerIcons {
+  justify-content: center;
+}
+
 @media screen and (max-width: $xxl) {
   .footer {
     padding: 0 $c_pad_l;

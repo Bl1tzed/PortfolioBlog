@@ -1,22 +1,23 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import s from "./postpage.module.scss";
+
 import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { InView } from "react-intersection-observer";
-import { client } from "@shared/api/client";
-import { type DetailedPost } from "@shared/types";
-import { ContentBlock } from "@shared/ui/content-block";
 import {
   PortableText,
   PortableTextComponents,
   toPlainText,
 } from "@portabletext/react";
-import { formatDate, textToAnchor } from "@shared/lib/utils";
+import { StickyCursor } from "@shared/ui/sticky-cursor";
+import { ContentBlock } from "@shared/ui/content-block";
 import { Button } from "@shared/ui/button";
+import { client } from "@shared/api/client";
+import { type DetailedPost } from "@shared/types";
 import { blocksToText } from "@shared/lib/blockToText";
+import { formatDate, textToAnchor } from "@shared/lib/utils";
 import { PostList } from "@widgets/post-list";
 import { queryPostpage } from "../model/queries/queryPostpage";
 import clsx from "clsx";
-
-import s from "./postpage.module.scss";
 
 const WORDS_PER_MINUTE = 183;
 
@@ -106,13 +107,13 @@ export const Postpage = () => {
 
   return (
     <main className={s.content}>
+      <StickyCursor />
       <div className={s.post}>
         <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img
             className={s.headingImage}
             src={post.mainImageUrl}
             alt="Heading Image"
-            fetchPriority="high"
           />
           <h1 className={s.headingText}>{post.title}</h1>
         </ContentBlock>

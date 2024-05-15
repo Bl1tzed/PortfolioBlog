@@ -1,8 +1,10 @@
-import { ContentBlock } from "@shared/ui/content-block";
 import s from "./homepage.module.scss";
-import { Button, SvgButton } from "@shared/ui/button";
-import { ReactSVG } from "react-svg";
+
 import { motion } from "framer-motion";
+import { ReactSVG } from "react-svg";
+import { ContentBlock } from "@shared/ui/content-block";
+import { Button, SvgButton } from "@shared/ui/button";
+import { StickyCursor } from "@shared/ui/sticky-cursor";
 
 export const Homepage = () => {
   const blockAnimation = {
@@ -34,6 +36,7 @@ export const Homepage = () => {
 
   return (
     <main className={s.content}>
+      <StickyCursor />
       <ContentBlock border className={s.heroBlock}>
         <div className={s.heroTitlesWrapper}>
           <motion.div

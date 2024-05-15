@@ -9,6 +9,7 @@ import { queryBlogpage } from "../model/queries/queryBlogpage";
 
 import s from "./blogpage.module.scss";
 import { useLocation } from "react-router-dom";
+import { StickyCursor } from "@shared/ui/sticky-cursor";
 
 export const Blogpage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -32,6 +33,7 @@ export const Blogpage = () => {
 
   return (
     <main className={s.content}>
+      <StickyCursor />
       <ContentBlock className={s.heading} bgColor="dark_08">
         <div className={s.headingTitle}>Последние Посты: Будь в Курсе</div>
         <div className={s.headingSubTitle}>

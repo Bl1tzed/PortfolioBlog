@@ -54,7 +54,10 @@ export const Navigation = (
               {item.title}
             </NavLink>
             {variant === "header" && item.link === location.pathname && (
-              <motion.div className={s.underline} layoutId="underline" />
+              <motion.div
+                className={s.underline}
+                layoutId="navigationBackground"
+              />
             )}
           </motion.li>
         ))}

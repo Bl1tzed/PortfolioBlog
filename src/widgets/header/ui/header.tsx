@@ -88,7 +88,6 @@ export const Header = () => {
             animate={animationState}
             transition={{
               duration: DURATION_SHORT,
-
               delay: (NAVIGATION_CONTENT.length + 1) * DURATION_SHORT,
             }}
           >

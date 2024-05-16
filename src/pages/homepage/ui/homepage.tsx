@@ -5,6 +5,7 @@ import { ReactSVG } from "react-svg";
 import { ContentBlock } from "@shared/ui/content-block";
 import { Button, SvgButton } from "@shared/ui/button";
 import { StickyCursor } from "@shared/ui/sticky-cursor";
+import { Link } from "react-router-dom";
 
 export const Homepage = () => {
   const blockAnimation = {
@@ -75,14 +76,16 @@ export const Homepage = () => {
             <div className={s.heroCtaSubtitle}>
               Over 1,000 articles on emerging tech trends and breakthroughs.
             </div>
-            <Button
-              variant="secondary"
-              size="small"
-              svgSrc="/svg/arrow-up-right.svg"
-              className={s.heroCtaButton}
-            >
-              Посетить блог
-            </Button>
+            <Link to="/blog">
+              <Button
+                variant="secondary"
+                size="small"
+                svgSrc="/svg/arrow-up-right.svg"
+                className={s.heroCtaButton}
+              >
+                Посетить блог
+              </Button>
+            </Link>
           </motion.div>
         </ContentBlock>
       </ContentBlock>
@@ -157,7 +160,7 @@ export const Homepage = () => {
           </div>
         </motion.div>
       </ContentBlock>
-      <ContentBlock bgColor="dark_10">
+      <ContentBlock bgColor="dark_10" className={s.ctaBlock}>
         <motion.div className={s.ctaBlockHeader}>
           <motion.div
             className={s.ctaBlockHeaderIcon}

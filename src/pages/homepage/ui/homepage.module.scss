@@ -197,9 +197,11 @@
     flex-direction: column;
   }
   .heroTitles {
-    max-width: 650px;
+    max-width: 550px;
   }
   .heroTitlesWrapper {
+    display: flex;
+    justify-content: center;
     border-bottom: 1px solid $dark_15;
   }
   .heroCtaWrapper {
@@ -241,9 +243,15 @@
     max-width: 550px;
     gap: 16px;
   }
+  .ctaBlock {
+    display: flex;
+    justify-content: center;
+  }
   .ctaBlockHeader {
     flex-direction: column;
     align-items: start;
+    max-width: 550px;
+    gap: 4px;
   }
   .ctaBlockHeaderIcon {
     align-items: center;
@@ -253,5 +261,8 @@
   }
   .ctaBlockAboveTitleMobile {
     display: block;
+  }
+  .ctaBlockTitle {
+    margin-bottom: 4px;
   }
 }

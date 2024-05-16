@@ -53,7 +53,11 @@ export const Header = () => {
           <NavLink to="/">
             <div className={s.logo}>Bibiblog</div>
           </NavLink>
-          <Navigation className={s.navigationMenu} isOpen={true} />
+          <Navigation
+            className={s.navigationMenu}
+            variant="header"
+            isOpen={true}
+          />
           <div className={s.headerButton}>
             <Link to="/contact">
               <Button variant="primary" size="small">

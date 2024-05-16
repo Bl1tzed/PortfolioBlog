@@ -18,20 +18,38 @@
 
   list-style-type: none;
   font-size: 18px;
+  position: relative;
 
-  & a {
+  & .pageLink {
     display: inline-block;
     color: $gray_50;
     text-decoration: none;
     padding: 14px 24px;
+    position: relative;
+    z-index: 10;
+    transition: color 0.3s;
   }
 
   & .activePage {
     color: $white;
-    background-color: $dark_08;
-    border: 1px solid $dark_20;
-    border-radius: 10px;
+
+    // background-color: $dark_08;
+    // border: 1px solid $dark_20;
+    // border-radius: 10px;
   }
+}
+
+.underline {
+  position: absolute;
+  color: $white;
+  background-color: $dark_08;
+  border: 1px solid $dark_20;
+  border-radius: 10px;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 9;
 }
 
 @media screen and (max-width: $xxl) {

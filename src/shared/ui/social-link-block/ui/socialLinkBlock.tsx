@@ -4,6 +4,7 @@ import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 import { SOCIAL_LINKS } from "@shared/consts";
 import clsx from "clsx";
+import { MagneticButton } from "../../magneticButton";
 
 type SocialLinkBlockProps = VariantProps<typeof socialLinkBlockVariants> & {
   className?: string;
@@ -33,7 +34,16 @@ export const SocialLinkBlock = (props: SocialLinkBlockProps) => {
           className={clsx(socialLinkBlockVariants({ variant }), s.socialLink)}
           {...other}
         >
-          <ReactSVG src={social.svgSrc} />
+          {/* <MagneticButton>
+            <ReactSVG src={social.svgSrc} />
+          </MagneticButton> */}
+          {variant === "default" ? (
+            <MagneticButton>
+              <ReactSVG src={social.svgSrc} />
+            </MagneticButton>
+          ) : (
+            <ReactSVG src={social.svgSrc} />
+          )}
         </Link>
       ))}
     </div>

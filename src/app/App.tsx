@@ -5,7 +5,7 @@ import { Header } from "@widgets/header";
 import { Banner } from "@widgets/banner";
 import { Footer } from "@widgets/footer";
 
-function App() {
+export default function App() {
   return (
     <div className={s.page}>
       <div className={s.wrapper}>
@@ -17,5 +17,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

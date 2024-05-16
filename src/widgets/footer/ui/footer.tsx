@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className={s.footerInfoItem}>Правила и условия</div>
             <div className={s.footerInfoItem}>Политика конфиденциальности</div>
           </div>
-          <SocialLinkBlock className={s.footerIcons} />
+          <SocialLinkBlock variant="default" className={s.footerIcons} />
           <div className={s.copyright}>
             © {new Date().getUTCFullYear()} Bibiblog. All rights reserved.
           </div>

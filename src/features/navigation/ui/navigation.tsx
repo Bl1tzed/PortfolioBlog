@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from "framer-motion";
 import {
@@ -29,6 +29,7 @@ export const Navigation = (
   }
 ) => {
   const { className, variant, isOpen } = props;
+  const location = useLocation();
 
   return (
     <nav className={className}>
@@ -46,10 +47,15 @@ export const Navigation = (
           >
             <NavLink
               to={item.link}
-              className={({ isActive }) => clsx(isActive && s.activePage)}
+              className={({ isActive }) =>
+                clsx(isActive && s.activePage, s.pageLink)
+              }
             >
               {item.title}
             </NavLink>
+            {variant === "header" && item.link === location.pathname && (
+              <motion.div className={s.underline} layoutId="underline" />
+            )}
           </motion.li>
         ))}
       </ul>

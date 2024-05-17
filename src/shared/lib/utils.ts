@@ -64,3 +64,7 @@ export function textToAnchor(text: string) {
   text = translite(text);
   return text.toLowerCase().replaceAll(" ", "-");
 }
+
+export function formatIndex(index: number, quantity: number) {
+  return new Array(quantity).join("0").slice((quantity || 2) * -1) + index;
+}

@@ -15,7 +15,6 @@ export const AnimatedLayout = ({ children }: { children: ReactNode }) => {
       exit="exit"
       variants={variants}
       transition={{ duration: 0.3, type: "easeInOut" }}
-      className="relative"
     >
       {children}
     </motion.div>

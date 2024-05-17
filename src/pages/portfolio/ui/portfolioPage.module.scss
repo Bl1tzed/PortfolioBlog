@@ -1,0 +1,22 @@
+.projects {
+  position: relative;
+  height: 300vh;
+
+  & .projectsBlock {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  & .projectCards {
+    display: flex;
+    gap: calc(30vw);
+  }
+}
+
+.block {
+  height: 100vh;
+}

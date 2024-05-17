@@ -8,7 +8,6 @@ import {
   PortableTextComponents,
   toPlainText,
 } from "@portabletext/react";
-import { StickyCursor } from "@shared/ui/sticky-cursor";
 import { ContentBlock } from "@shared/ui/content-block";
 import { Button } from "@shared/ui/button";
 import { client } from "@shared/api/client";
@@ -107,7 +106,6 @@ export const Postpage = () => {
 
   return (
     <main className={s.content}>
-      <StickyCursor />
       <div className={s.post}>
         <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img

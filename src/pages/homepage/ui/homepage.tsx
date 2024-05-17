@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 import { ReactSVG } from "react-svg";
 import { ContentBlock } from "@shared/ui/content-block";
 import { Button, SvgButton } from "@shared/ui/button";
-import { StickyCursor } from "@shared/ui/sticky-cursor";
 import { Link } from "react-router-dom";
+import { DURATION_SHORT } from "@shared/consts";
 
 export const Homepage = () => {
   const blockAnimation = {
     notInView: {},
     inViewFirst: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: DURATION_SHORT,
       },
     },
     inViewSecond: {
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.3,
+        staggerChildren: DURATION_SHORT,
+        delayChildren: DURATION_SHORT,
       },
     },
   };
@@ -37,7 +37,6 @@ export const Homepage = () => {
 
   return (
     <main className={s.content}>
-      <StickyCursor />
       <ContentBlock border className={s.heroBlock}>
         <div className={s.heroTitlesWrapper}>
           <motion.div

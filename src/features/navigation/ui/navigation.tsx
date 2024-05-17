@@ -48,7 +48,13 @@ export const Navigation = (
             <NavLink
               to={item.link}
               className={({ isActive }) =>
-                clsx(isActive && s.activePage, s.pageLink)
+                clsx(
+                  isActive && s.activePage,
+                  isActive &&
+                    variant === "mobileMenu" &&
+                    s.activePageMobileMenu,
+                  s.pageLink
+                )
               }
             >
               {item.title}

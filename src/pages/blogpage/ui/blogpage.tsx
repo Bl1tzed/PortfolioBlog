@@ -1,4 +1,7 @@
+import s from "./blogpage.module.scss";
+
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ContentBlock } from "@shared/ui/content-block";
 import { Post } from "@shared/types";
 import { client } from "@shared/api/client";
@@ -6,10 +9,6 @@ import { CategorySelector } from "@features/category-selector";
 import { PostBlock } from "@widgets/post-block";
 import { PostList } from "@widgets/post-list";
 import { queryBlogpage } from "../model/queries/queryBlogpage";
-
-import s from "./blogpage.module.scss";
-import { useLocation } from "react-router-dom";
-import { StickyCursor } from "@shared/ui/sticky-cursor";
 
 export const Blogpage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -33,7 +32,6 @@ export const Blogpage = () => {
 
   return (
     <main className={s.content}>
-      <StickyCursor />
       <ContentBlock className={s.heading} bgColor="dark_08">
         <div className={s.headingTitle}>Последние Посты: Будь в Курсе</div>
         <div className={s.headingSubTitle}>

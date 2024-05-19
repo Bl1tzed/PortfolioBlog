@@ -33,8 +33,8 @@ export const ProjectCard = ({
   };
 
   const svgText = {
-    noAction: { width: 1, opacity: 0, visibility: "hidden" },
-    tap: { width: 50, opacity: 1, visibility: "visible" },
+    noAction: { width: 0, opacity: 0, visibility: "hidden" },
+    tap: { width: "fit-content", opacity: 1, visibility: "visible" },
   } as const;
 
   return (
@@ -44,6 +44,7 @@ export const ProjectCard = ({
       variants={cardAnimation}
       initial="notInView"
       whileInView="inView"
+      viewport={{ once: true }}
     >
       <motion.div variants={cardItemsAnimation} className={s.cardHeader}>
         <div className={s.index}>{"#" + formatIndex(index, 3)}</div>
@@ -58,7 +59,7 @@ export const ProjectCard = ({
         >
           <ReactSVG className={s.techSvg} src="svg/react.svg" />
           <motion.div className={s.techName} variants={svgText}>
-            React
+            Reactdasdasd
           </motion.div>
         </motion.div>
         <motion.div
@@ -74,11 +75,7 @@ export const ProjectCard = ({
         </motion.div>
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardImageWrapper}>
-        <img
-          src="https://placehold.co/1920x1080/000000/FFFFFF/png"
-          alt="Project Image"
-          className={s.cardImage}
-        />
+        <img src={card.imageSrc} alt="Project Image" className={s.cardImage} />
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardLinks}>
         <Link to="/" className={s.link}>

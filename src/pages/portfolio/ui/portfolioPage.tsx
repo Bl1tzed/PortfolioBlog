@@ -11,7 +11,14 @@ export const PortfolioPage = () => {
     target: ref,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["7%", "-99%"]);
+  const parameter =
+    (PROJECT_CARDS.length * 50 + (PROJECT_CARDS.length - 1) * 20) / 100;
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [`${20 / parameter}%`, `-${100 - 80 / parameter}%`]
+  );
 
   return (
     <main className={s.content}>

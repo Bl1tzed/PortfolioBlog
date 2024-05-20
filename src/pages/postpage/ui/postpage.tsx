@@ -17,6 +17,7 @@ import { formatDate, textToAnchor } from "@shared/lib/utils";
 import { PostList } from "@widgets/post-list";
 import { queryPostpage } from "../model/queries/queryPostpage";
 import clsx from "clsx";
+import { Metadata } from "@shared/lib/metadata";
 
 const WORDS_PER_MINUTE = 183;
 
@@ -106,6 +107,7 @@ export const Postpage = () => {
 
   return (
     <main className={s.content}>
+      <Metadata title="Post" />
       <div className={s.post}>
         <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img

@@ -9,9 +9,11 @@ import { CategorySelector } from "@features/category-selector";
 import { PostBlock } from "@widgets/post-block";
 import { PostList } from "@widgets/post-list";
 import { queryBlogpage } from "../model/queries/queryBlogpage";
+import { Category } from "@shared/consts";
+import { Metadata } from "@shared/lib/metadata";
 
 export const Blogpage = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [posts, setPosts] = useState<Post[] | null>(null);
   const location = useLocation();
 
@@ -32,6 +34,7 @@ export const Blogpage = () => {
 
   return (
     <main className={s.content}>
+      <Metadata title="Blog" />
       <ContentBlock className={s.heading} bgColor="dark_08">
         <div className={s.headingTitle}>Последние Посты: Будь в Курсе</div>
         <div className={s.headingSubTitle}>

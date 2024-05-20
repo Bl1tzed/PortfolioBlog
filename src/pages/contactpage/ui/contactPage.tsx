@@ -4,6 +4,7 @@ import { type AnimationSequence, useAnimate } from "framer-motion";
 import { Button } from "@shared/ui/button";
 import { ContentBlock } from "@shared/ui/content-block";
 import { SocialLinkBlock } from "@shared/ui/social-link-block";
+import { Metadata } from "@shared/lib/metadata";
 
 export const ContactPage = () => {
   const [scope, animate] = useAnimate();
@@ -32,6 +33,7 @@ export const ContactPage = () => {
 
   return (
     <main ref={scope} className={s.content}>
+      <Metadata title="Blog" />
       <div className={s.contacts}>
         <ContentBlock
           borderRight

@@ -1,14 +1,3 @@
-// export const CATEGORIES: string[] = [
-//   "All",
-//   "Technology",
-//   "Politics",
-//   "Health",
-//   "Environment",
-//   "Sports",
-// ];
-
-// export type Category = (typeof CATEGORIES)[number];
-
 export const CATEGORIES = [
   { name: "All", ru: "Все" },
   { name: "Technology", ru: "Технология" },
@@ -16,6 +5,6 @@ export const CATEGORIES = [
   { name: "Health", ru: "Здоровье" },
   { name: "Environment", ru: "Природа" },
   { name: "Sports", ru: "Спорт" },
-];
+] as const;
 
 export type Category = (typeof CATEGORIES)[number]["name"];

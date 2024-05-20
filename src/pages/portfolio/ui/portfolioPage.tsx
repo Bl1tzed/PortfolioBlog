@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { DURATION_SHORT, PROJECT_CARDS } from "@shared/consts";
 import { ProjectCard } from "@entities/project-card";
+import { Metadata } from "@shared/lib/metadata";
 
 export const PortfolioPage = () => {
   const ref = useRef(null);
@@ -22,6 +23,7 @@ export const PortfolioPage = () => {
 
   return (
     <main className={s.content}>
+      <Metadata title="Portfolio" />
       {/* <div className={s.block}></div> */}
       <ContentBlock border>
         <motion.section

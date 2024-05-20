@@ -6,6 +6,7 @@ import { ContentBlock } from "@shared/ui/content-block";
 import { Button, SvgButton } from "@shared/ui/button";
 import { Link } from "react-router-dom";
 import { DURATION_SHORT } from "@shared/consts";
+import { Metadata } from "@shared/lib/metadata";
 
 export const Homepage = () => {
   const blockAnimation = {
@@ -37,6 +38,7 @@ export const Homepage = () => {
 
   return (
     <main className={s.content}>
+      <Metadata />
       <ContentBlock border className={s.heroBlock}>
         <div className={s.heroTitlesWrapper}>
           <motion.div

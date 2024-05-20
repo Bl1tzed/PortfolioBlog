@@ -107,7 +107,7 @@ export const Postpage = () => {
 
   return (
     <main className={s.content}>
-      <Metadata title="Post" />
+      <Metadata title={post.title} />
       <div className={s.post}>
         <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
           <img

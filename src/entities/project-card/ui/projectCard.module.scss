@@ -32,8 +32,8 @@
   & .cardImage {
     border-radius: 12px;
     max-width: 100%;
-    height: 280px;
-    object-fit: cover;
+    height: 360px;
+    object-fit: contain;
   }
 
   & .cardLinks {
@@ -45,11 +45,12 @@
   & .link {
     display: flex;
     gap: 4px;
-    color: $gray_60;
+    color: $gray_70;
   }
 
   & .techName {
     color: $gray_60;
+    text-wrap: nowrap;
   }
 
   & .techSvg svg {
@@ -61,5 +62,14 @@
     width: 20px;
     height: 20px;
     stroke: $yellow_55;
+  }
+
+  & .disabledLink {
+    pointer-events: none;
+    color: $gray_60;
+  }
+
+  & .disabledLink svg {
+    stroke: $gray_60;
   }
 }

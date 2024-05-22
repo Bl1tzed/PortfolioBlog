@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { formatIndex } from "@shared/lib/utils";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
+import { TECHNOLOGIES } from "@shared/consts";
+import clsx from "clsx";
 
 export const ProjectCard = ({
   card,
@@ -51,39 +53,43 @@ export const ProjectCard = ({
         <div className={s.name}>{card.name}</div>
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardTechs}>
-        <motion.div
-          initial="noAction"
-          whileTap="tap"
-          variants={svgHover}
-          className={s.cardTech}
-        >
-          <ReactSVG className={s.techSvg} src="svg/react.svg" />
-          <motion.div className={s.techName} variants={svgText}>
-            Reactdasdasd
-          </motion.div>
-        </motion.div>
-        <motion.div
-          initial="noAction"
-          whileTap="tap"
-          variants={svgHover}
-          className={s.cardTech}
-        >
-          <ReactSVG className={s.techSvg} src="svg/react.svg" />
-          <motion.div className={s.techName} variants={svgText}>
-            React
-          </motion.div>
-        </motion.div>
+        {card.techs.map((cardTech, index) => {
+          const currentTech = TECHNOLOGIES.find(
+            (tech) => tech.name === cardTech
+          );
+          if (!currentTech) return null;
+          return (
+            <motion.div
+              initial="noAction"
+              whileTap="tap"
+              variants={svgHover}
+              className={s.cardTech}
+              key={currentTech.name + index}
+            >
+              <ReactSVG className={s.techSvg} src={currentTech.imageSrc} />
+              <motion.div className={s.techName} variants={svgText}>
+                {currentTech.name}
+              </motion.div>
+            </motion.div>
+          );
+        })}
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardImageWrapper}>
         <img src={card.imageSrc} alt="Project Image" className={s.cardImage} />
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardLinks}>
-        <Link to="/" className={s.link}>
-          Демо
+        <Link
+          to={card.gitLink}
+          className={clsx(!card.gitLink && s.disabledLink, s.link)}
+        >
+          GitHub
           <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
         </Link>
-        <Link to="/" className={s.link}>
-          GitHub
+        <Link
+          to={card.demoLink}
+          className={clsx(!card.demoLink && s.disabledLink, s.link)}
+        >
+          Демо
           <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
         </Link>
       </motion.div>

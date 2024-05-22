@@ -7,4 +7,5 @@ export type Post = {
   published: string;
   author: string;
   mainImageUrl: string;
+  metaDescription: string;
 };

@@ -18,6 +18,7 @@ import { PostList } from "@widgets/post-list";
 import { queryPostpage } from "../model/queries/queryPostpage";
 import clsx from "clsx";
 import { Metadata } from "@shared/lib/metadata";
+import { AnimatedLayout } from "@shared/ui/animated-layout";
 
 const WORDS_PER_MINUTE = 183;
 
@@ -106,127 +107,130 @@ export const Postpage = () => {
   };
 
   return (
-    <main className={s.content}>
-      <Metadata title={post.title} />
-      <div className={s.post}>
-        <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
-          <img
-            className={s.headingImage}
-            src={post.mainImageUrl}
-            alt="Heading Image"
-          />
-          <h1 className={s.headingText}>{post.title}</h1>
-        </ContentBlock>
-        <ContentBlock>
-          <div className={s.postContent}>
-            <div className={s.postTextBlock}>
-              <ContentBlock border borderRight className={s.introduction}>
-                <InView
-                  onChange={setInView}
-                  rootMargin={"-15% 0px -85% 0px"}
-                  threshold={0}
-                >
-                  {({ ref }) => {
-                    return (
-                      <div
-                        id="introduction"
-                        className={s.introductionTitle}
-                        ref={ref}
-                      >
-                        Вступление
+    <AnimatedLayout>
+      <main className={s.content}>
+        <Metadata title={post.title} description={post.subtitle} />
+        <div className={s.post}>
+          <ContentBlock border bgColor="dark_08" className={s.headingOuter}>
+            <img
+              className={s.headingImage}
+              src={post.mainImageUrl}
+              alt="Heading Image"
+            />
+            <h1 className={s.headingText}>{post.title}</h1>
+          </ContentBlock>
+          <ContentBlock>
+            <div className={s.postContent}>
+              <div className={s.postTextBlock}>
+                <ContentBlock border borderRight className={s.introduction}>
+                  <InView
+                    onChange={setInView}
+                    rootMargin={"-15% 0px -85% 0px"}
+                    threshold={0}
+                  >
+                    {({ ref }) => {
+                      return (
+                        <div
+                          id="introduction"
+                          className={s.introductionTitle}
+                          ref={ref}
+                        >
+                          Вступление
+                        </div>
+                      );
+                    }}
+                  </InView>
+                  <div className={s.introductionSubTitle}>{post.subtitle}</div>
+                </ContentBlock>
+                <ContentBlock border borderRight className={s.postMainText}>
+                  <PortableText
+                    value={post.body}
+                    components={richTextComponents}
+                  />
+                </ContentBlock>
+              </div>
+              <ContentBlock border borderLeft className={s.postInfo}>
+                <div className={s.info}>
+                  <div className={s.infoBlock}>
+                    <div className={s.infoItem}>
+                      <div className={s.infoItemLabel}>Дата публикации</div>
+                      <div className={s.infoItemText}>
+                        {formatDate(post.published)}
                       </div>
-                    );
-                  }}
-                </InView>
-                <div className={s.introductionSubTitle}>{post.subtitle}</div>
-              </ContentBlock>
-              <ContentBlock border borderRight className={s.postMainText}>
-                <PortableText
-                  value={post.body}
-                  components={richTextComponents}
-                />
-              </ContentBlock>
-            </div>
-            <ContentBlock border borderLeft className={s.postInfo}>
-              <div className={s.info}>
-                <div className={s.infoBlock}>
-                  <div className={s.infoItem}>
-                    <div className={s.infoItemLabel}>Дата публикации</div>
-                    <div className={s.infoItemText}>
-                      {formatDate(post.published)}
+                    </div>
+                    <div className={s.infoItem}>
+                      <div className={s.infoItemLabel}>Категория</div>
+                      <div className={s.infoItemText}>{post.categoryRu}</div>
                     </div>
                   </div>
-                  <div className={s.infoItem}>
-                    <div className={s.infoItemLabel}>Категория</div>
-                    <div className={s.infoItemText}>{post.categoryRu}</div>
+                  <div className={s.infoBlock}>
+                    <div className={s.infoItem}>
+                      <div className={s.infoItemLabel}>Время чтения</div>
+                      <div className={s.infoItemText}>{readingTime} мин</div>
+                    </div>
+                    <div className={s.infoItem}>
+                      <div className={s.infoItemLabel}>Имя автора</div>
+                      <div className={s.infoItemText}>{post.author}</div>
+                    </div>
                   </div>
                 </div>
-                <div className={s.infoBlock}>
-                  <div className={s.infoItem}>
-                    <div className={s.infoItemLabel}>Время чтения</div>
-                    <div className={s.infoItemText}>{readingTime} мин</div>
-                  </div>
-                  <div className={s.infoItem}>
-                    <div className={s.infoItemLabel}>Имя автора</div>
-                    <div className={s.infoItemText}>{post.author}</div>
-                  </div>
-                </div>
-              </div>
-              {!!post.headings.length && (
-                <div className={s.contentTable}>
-                  <div className={s.contentTableLabel}>Содержание</div>
-                  <div className={s.contentTableItems}>
-                    <ul className={s.contentTableItemsList}>
-                      <li
-                        key={"introduction"}
-                        className={clsx(
-                          s.contentTableItem,
-                          visibleSection === "introduction" && s.visibleSection
-                        )}
-                      >
-                        <a href={`#introduction`}>Вступление</a>
-                      </li>
-                      {post.headings.map((item) => (
+                {!!post.headings.length && (
+                  <div className={s.contentTable}>
+                    <div className={s.contentTableLabel}>Содержание</div>
+                    <div className={s.contentTableItems}>
+                      <ul className={s.contentTableItemsList}>
                         <li
-                          key={item._key}
+                          key={"introduction"}
                           className={clsx(
                             s.contentTableItem,
-                            visibleSection ===
-                              textToAnchor(item.children[0].text) &&
+                            visibleSection === "introduction" &&
                               s.visibleSection
                           )}
                         >
-                          <a href={`#${textToAnchor(item.children[0].text)}`}>
-                            {item.children[0].text}
-                          </a>
+                          <a href={`#introduction`}>Вступление</a>
                         </li>
-                      ))}
-                    </ul>
+                        {post.headings.map((item) => (
+                          <li
+                            key={item._key}
+                            className={clsx(
+                              s.contentTableItem,
+                              visibleSection ===
+                                textToAnchor(item.children[0].text) &&
+                                s.visibleSection
+                            )}
+                          >
+                            <a href={`#${textToAnchor(item.children[0].text)}`}>
+                              {item.children[0].text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              )}
-            </ContentBlock>
-          </div>
-        </ContentBlock>
-        {!!post.samePosts.length && (
-          <ContentBlock border>
-            <PostList posts={post.samePosts}>
-              <div className={s.samePostsHeading}>
-                <div className={s.samePostsLabel}>Похожие посты</div>
-                <Link to="/blog">
-                  <Button
-                    variant="secondary"
-                    svgSrc="/svg/arrow-up-right.svg"
-                    className={s.samePostsButton}
-                  >
-                    Все посты
-                  </Button>
-                </Link>
-              </div>
-            </PostList>
+                )}
+              </ContentBlock>
+            </div>
           </ContentBlock>
-        )}
-      </div>
-    </main>
+          {!!post.samePosts.length && (
+            <ContentBlock border>
+              <PostList posts={post.samePosts}>
+                <div className={s.samePostsHeading}>
+                  <div className={s.samePostsLabel}>Похожие посты</div>
+                  <Link to="/blog">
+                    <Button
+                      variant="secondary"
+                      svgSrc="/svg/arrow-up-right.svg"
+                      className={s.samePostsButton}
+                    >
+                      Все посты
+                    </Button>
+                  </Link>
+                </div>
+              </PostList>
+            </ContentBlock>
+          )}
+        </div>
+      </main>
+    </AnimatedLayout>
   );
 };

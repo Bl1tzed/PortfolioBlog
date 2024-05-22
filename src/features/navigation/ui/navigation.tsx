@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from "framer-motion";
 import {
@@ -29,7 +29,6 @@ export const Navigation = (
   }
 ) => {
   const { className, variant, isOpen } = props;
-  const location = useLocation();
 
   return (
     <nav className={className}>
@@ -45,26 +44,29 @@ export const Navigation = (
               delay: (index + 1) * DURATION_SHORT,
             }}
           >
-            <NavLink
-              to={item.link}
-              className={({ isActive }) =>
-                clsx(
-                  isActive && s.activePage,
-                  isActive &&
-                    variant === "mobileMenu" &&
-                    s.activePageMobileMenu,
-                  s.pageLink
-                )
-              }
-            >
-              {item.title}
+            <NavLink to={item.link}>
+              {({ isActive }) => (
+                <>
+                  <div
+                    className={clsx(
+                      s.pageLink,
+                      isActive && s.activePage,
+                      isActive &&
+                        variant === "mobileMenu" &&
+                        s.activePageMobileMenu
+                    )}
+                  >
+                    {item.title}
+                  </div>
+                  {variant === "header" && isActive && (
+                    <motion.div
+                      className={s.underline}
+                      layoutId="navigationBackground"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
-            {variant === "header" && item.link === location.pathname && (
-              <motion.div
-                className={s.underline}
-                layoutId="navigationBackground"
-              />
-            )}
           </motion.li>
         ))}
       </ul>

@@ -4,30 +4,31 @@ import { Postpage } from "@pages/postpage";
 import { PortfolioPage } from "@pages/portfolio";
 import { NotFoundPage } from "@pages/notfound";
 import { ContactPage } from "@pages/contactpage";
+import React from "react";
 
 export const routes = [
   {
     path: "/",
-    element: <Homepage />,
+    element: React.createElement(Homepage),
   },
   {
     path: "/blog",
-    element: <Blogpage />,
+    element: React.createElement(Blogpage),
   },
   {
     path: "/portfolio",
-    element: <PortfolioPage />,
+    element: React.createElement(PortfolioPage),
   },
   {
     path: "/contact",
-    element: <ContactPage />,
+    element: React.createElement(ContactPage),
   },
   {
     path: "/blog/:postSlug",
-    element: <Postpage />,
+    element: React.createElement(Postpage),
   },
   {
     path: "*",
-    element: <NotFoundPage />,
+    element: React.createElement(NotFoundPage),
   },
 ];

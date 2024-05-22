@@ -1,24 +1,17 @@
 import s from "./styles/App.module.scss";
 
-import { useLocation, useOutlet } from "react-router-dom";
 import { Header } from "@widgets/header";
 import { Footer } from "@widgets/footer";
 import { Metadata } from "@shared/lib/metadata";
-import { AnimatePresence } from "framer-motion";
-import React from "react";
+import { AnimatedOutlet } from "@shared/ui/animated-outlet";
 
 export default function App() {
-  const location = useLocation();
-  const element = useOutlet();
-
   return (
     <div className={s.page}>
       <Metadata />
       <div className={s.wrapper}>
         <Header />
-        <AnimatePresence mode="wait" initial={true}>
-          {element && React.cloneElement(element, { key: location.pathname })}
-        </AnimatePresence>
+        <AnimatedOutlet />
       </div>
       <Footer />
     </div>

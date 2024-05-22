@@ -56,10 +56,10 @@
 @media screen and (max-width: $xxl) {
   .header .navigationItem {
     font-size: 14px;
-    & a {
+    & .pageLink {
       padding: 10px 18px;
     }
-    & .activePage {
+    & .underline {
       border-radius: 6px;
     }
   }

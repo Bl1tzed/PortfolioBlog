@@ -22,6 +22,6 @@ export const queryPostpage = (postSlug: string) => `
 		subtitle,
 		published,
 		author,
-		"mainImageUrl": mainImage.asset->url
+		"mainImageUrl": mainImage.asset->url,
 	}
 `;

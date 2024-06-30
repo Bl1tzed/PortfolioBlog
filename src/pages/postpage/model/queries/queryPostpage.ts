@@ -13,7 +13,7 @@ export const queryPostpage = (postSlug: string) => `
 		{ 
 			title,
 			"mainImageUrl": mainImage.asset->url,
-			"category": category -> title,
+			"categoryRu": category -> title,
 			"slug": slug.current
 		},
 		"category": category -> title,

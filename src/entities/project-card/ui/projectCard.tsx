@@ -5,7 +5,31 @@ import { formatIndex } from "@shared/lib/utils";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 import { TECHNOLOGIES } from "@shared/consts";
-import clsx from "clsx";
+
+const cardAnimation = {
+  notInView: {},
+  inView: {
+    transition: {
+      dealyChildren: DURATION_SHORT,
+      staggerChildren: DURATION_SHORT,
+    },
+  },
+};
+
+const cardItemsAnimation = {
+  notInView: { opacity: 0 },
+  inView: { opacity: 1 },
+};
+
+const svgHover = {
+  noAction: {},
+  tap: {},
+};
+
+const svgText = {
+  noAction: { width: 0, opacity: 0, visibility: "hidden" },
+  tap: { width: "fit-content", opacity: 1, visibility: "visible" },
+} as const;
 
 export const ProjectCard = ({
   card,
@@ -14,30 +38,6 @@ export const ProjectCard = ({
   card: ProjectCardProps;
   index: number;
 }) => {
-  const cardAnimation = {
-    notInView: {},
-    inView: {
-      transition: {
-        dealyChildren: DURATION_SHORT,
-        staggerChildren: DURATION_SHORT,
-      },
-    },
-  };
-
-  const cardItemsAnimation = {
-    notInView: { opacity: 0 },
-    inView: { opacity: 1 },
-  };
-
-  const svgHover = {
-    noAction: {},
-    tap: {},
-  };
-
-  const svgText = {
-    noAction: { width: 0, opacity: 0, visibility: "hidden" },
-    tap: { width: "fit-content", opacity: 1, visibility: "visible" },
-  } as const;
 
   return (
     <motion.div
@@ -75,23 +75,26 @@ export const ProjectCard = ({
         })}
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardImageWrapper}>
-        <img src={card.imageSrc} alt="Project Image" className={s.cardImage} />
+        <img
+          src={card.imageSrc}
+          alt="Project Image"
+          className={s.cardImage}
+          draggable="false"
+        />
       </motion.div>
       <motion.div variants={cardItemsAnimation} className={s.cardLinks}>
-        <Link
-          to={card.gitLink}
-          className={clsx(!card.gitLink && s.disabledLink, s.link)}
-        >
-          GitHub
-          <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
-        </Link>
-        <Link
-          to={card.demoLink}
-          className={clsx(!card.demoLink && s.disabledLink, s.link)}
-        >
-          Демо
-          <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
-        </Link>
+        {card.gitLink && (
+          <Link to={card.gitLink} className={s.link}>
+            GitHub
+            <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
+          </Link>
+        )}
+        {card.demoLink && (
+          <Link to={card.demoLink} className={s.link}>
+            Демо
+            <ReactSVG className={s.linkSvg} src="svg/arrow-up-right.svg" />
+          </Link>
+        )}
       </motion.div>
     </motion.div>
   );

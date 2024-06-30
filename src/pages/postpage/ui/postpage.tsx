@@ -106,6 +106,8 @@ export const Postpage = () => {
     },
   };
 
+  console.log(post);
+
   return (
     <AnimatedLayout>
       <main className={s.content}>

@@ -33,7 +33,7 @@ export const PortfolioPage = () => {
   });
 
   const parameter =
-    (PROJECT_CARDS.length * 50 + (PROJECT_CARDS.length - 1) * 20) / 100;
+    (PROJECT_CARDS.length * 60 + (PROJECT_CARDS.length - 1) * 20) / 100;
 
   const x = useTransform(
     scrollYProgress,
